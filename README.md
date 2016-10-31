@@ -17,17 +17,17 @@ Following resources are used for internationalzation:
 
 2. Open Form to translate
 
-![Set localizable](tutorial_img/1_formDefaultLanguage.png)
+	![Set localizable](tutorial_img/1_formDefaultLanguage.png)
 
 3. Change Property Language of Form to English
 
 	**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
 
-![Set localizable](tutorial_img/1_formEnglish.png)
+	![Set localizable](tutorial_img/1_formEnglish.png)
 
 4. Set Text of desired Element (e.g. Button) to translated to new Text.
 
-![Set localizable](tutorial_img/1_formEnglishText.png)
+	![Set localizable](tutorial_img/1_formEnglishText.png)
 
 
 ## Code
