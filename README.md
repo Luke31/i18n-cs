@@ -1,15 +1,15 @@
 # i18n-cs
-This is a collection of Visual Studio 2015 C# Applications to demonstrate Internationalization.
+This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
 
 ## WinForms
-This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx):
+This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
 
 Following resources are used for internationalzation:
 
 * Project resources (non-form-based, dialog-boxes, error-messages)
 * Form resources (Auto-generated)
 
-**For Forms-Property: always use either project OR form resources, not mixed**
+**Hint:** For Forms-Property: always use either project OR form resources, not mixed
 
 1. Set project as localizable
 
@@ -20,8 +20,7 @@ Following resources are used for internationalzation:
 ![Set localizable](tutorial_img/1_formDefaultLanguage.png)
 
 3. Change Property Language of Form to English
-
-**Always use _English_ and not a specific English locale such as _English (United States)_**
+**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
 
 ![Set localizable](tutorial_img/1_formEnglish.png)
 
