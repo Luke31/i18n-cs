@@ -40,7 +40,7 @@ This part is also applicable to simple Console-applications
 
 	**Hint:** This file is the fallback for the current default language (Japanese), so the text in this file should be Japanese.
 
-	![New Project resources](tutorial_img/2_projectResource.png)
+	![New Project resources](tutorial_img/2_projectResourceName.png)
 	
 2. Enter a new string with a default Japanese text.
 
