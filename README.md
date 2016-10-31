@@ -12,6 +12,7 @@ Following resources are used for internationalzation:
 **Hint:** For Forms-Property: always use either project OR form resources, not mixed
 
 1. Set project as localizable
+
 	![Set localizable](tutorial_img/1_enablei18n.png)
 
 2. Open Form to translate
@@ -19,6 +20,7 @@ Following resources are used for internationalzation:
 ![Set localizable](tutorial_img/1_formDefaultLanguage.png)
 
 3. Change Property Language of Form to English
+
 	**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
 
 ![Set localizable](tutorial_img/1_formEnglish.png)
