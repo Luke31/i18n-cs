@@ -1,6 +1,6 @@
 # i18n-cs
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
-The default language is Japanese and translations to English will be added.
+The default language is Japanese and translations to English are added.
 
 ## WinForms
 This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
