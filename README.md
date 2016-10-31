@@ -50,16 +50,21 @@ This part is also applicable to simple Console-applications
 
 	![Japanese Text](tutorial_img/2_projectResEn.png)
 
-4. To access the manually added resources use the following code:
+4. To access the manually added resources (e.g. on a button-click) use the following code:
 
-	using System.Resources;
-	
-	...
-	
-	// Declare a Resource Manager instance. (Include namespace if set)
-	ResourceManager LocRM = new ResourceManager("WinForms.WinFormStrings",typeof(Form1).Assembly);
-	// Assign the string for the "strMessage" key to a message box.
-	MessageBox.Show(LocRM.GetString("strMessage"));
+		using System.Resources;
+		
+		...
+		
+		// Declare a Resource Manager instance. (Include namespace if set)
+        ResourceManager LocRM = new ResourceManager("WinForms.WinFormStrings", typeof(Form1).Assembly);
+        // Assign the string for the "errorInsuffMemory" key to a message box.
+        MessageBox.Show(LocRM.GetString("errorInsuffMemory"));
+
+**Hint:** To force the program to start in a specific locale, uncomment one of these lines in _Program.cs_ 
+
+	//Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP"); //Japanese (Default of this project)
+    //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB"); //English	
 	
 ## Code
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
