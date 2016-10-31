@@ -66,6 +66,10 @@ This part is also applicable to simple Console-applications
 	//Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP"); //Japanese (Default of this project)
     //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB"); //English	
 	
+**Hint:** Instead of creating a new default resources-file the existing default Resources.resx file under Properties may be used.
+For this only a new Resources file for the additional language English must be added: _Resources.en.resx_
+However, this approach results that ALL strings will be in one file and can't be distinguished. So separated Resources-files are strongly recommended!
+	
 ## Code
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
