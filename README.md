@@ -27,7 +27,7 @@ Following resources are used for internationalzation:
 
 4. Set Text of desired Element (e.g. Button) to translated to new Text.
 
-	![Set localizable](tutorial_img/1_formEnglishText.png)
+	![Set localizable](tutorial_img/1_formEnglishTextEdited.png)
 
 
 ## Code
