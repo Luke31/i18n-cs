@@ -3,7 +3,7 @@ This is a collection of Visual Studio 2015 C# Applications to demonstrate Intern
 
 ## WinForms
 1. Set project as localizable
-!(tutorial_img/1_enablei18n.png)
+![Set localizable](tutorial_img/1_enablei18n.png)
 
 ## Code
 
