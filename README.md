@@ -67,6 +67,6 @@ This part is also applicable to simple Console-applications
     //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB"); //English	
 	
 ## Code
-See [WinForms -> Localizable Error-message and dialog-boxes (Project resources)](#localizable-error-message-and-dialog-boxes-project-resources)
+See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
 ## WPF
