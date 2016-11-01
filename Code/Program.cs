@@ -15,7 +15,7 @@ namespace Company.Code
 
             var comp = new MultiLangComponent();
             comp.RunComponent();
-
+            
             Console.ReadLine();
         }
     }

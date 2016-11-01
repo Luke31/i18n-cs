@@ -90,9 +90,9 @@ Set in Code or in AssemblyInfo.cs
 	
 There are three solutions:
 
-* Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
-* Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
-* Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user)
+* Code - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
+* CodeSatelliteEn - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
+* CodeDefaultEnglish - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user)
 	
 ## Translate resource files
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
