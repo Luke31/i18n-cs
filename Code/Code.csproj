@@ -43,11 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MultiLangModule\CompText.ja.Designer.cs">
-      <DependentUpon>CompText.ja.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="MultiLangModule\CompText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,10 +56,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MultiLangModule\CompText.ja.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CompText.ja.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="MultiLangModule\CompText.en.resx" />
     <EmbeddedResource Include="MultiLangModule\CompText.resx">
       <Generator>ResXFileCodeGenerator</Generator>
