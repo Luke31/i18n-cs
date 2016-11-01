@@ -72,6 +72,7 @@ However, this approach results that ALL strings will be in one file and can't be
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
 ## WPF
+This Tutorial is based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
 
 ## Application's default culture
 To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
