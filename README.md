@@ -76,7 +76,7 @@ See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 ## Application's default culture
 To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
 
-	![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
+![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
 
 ## Fallback to Satellite Assembly
 Usually the application fallback is the main assembly (In this case Japanese) if the requested UI Culture cannot be found. 
