@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinForms {
+namespace Company.Code.MultiLangModule {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace WinForms {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class WinFormStrings {
+    internal class CompText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal WinFormStrings() {
+        internal CompText() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace WinForms {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinForms.WinFormStrings", typeof(WinFormStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Company.Code.MultiLangModule.CompText", typeof(CompText).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,15 @@ namespace WinForms {
         internal static string errorInsuffMemory {
             get {
                 return ResourceManager.GetString("errorInsuffMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to こんにちは世界.
+        /// </summary>
+        internal static string helloWorld {
+            get {
+                return ResourceManager.GetString("helloWorld", resourceCulture);
             }
         }
     }

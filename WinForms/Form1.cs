@@ -8,7 +8,6 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinForms.Properties;
 
 namespace WinForms
 {
@@ -21,10 +20,8 @@ namespace WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Declare a Resource Manager instance. (Include namespace if set)
-            ResourceManager LocRM = new ResourceManager("WinForms.WinFormStrings", typeof(Form1).Assembly);
-            // Assign the string for the "errorInsuffMemory" key to a message box.
-            MessageBox.Show(LocRM.GetString("errorInsuffMemory"));
+            // Access resource by Getter (Recommended as by http://stackoverflow.com/a/14503044/2003325)
+            MessageBox.Show(WinFormStrings.errorInsuffMemory);
         }
     }
 }

@@ -44,7 +44,7 @@ This part is also applicable to simple Console-applications
 	
 2. Enter a new string with a default Japanese text.
 
-	![Japanese Text](tutorial_img/2_projectResJp.png)
+	![Japanese Text](tutorial_img/2_projectResJp.png) -> 
 
 3. Repeat step 1 and 2 with a new file named _WinFormStrings.en.resx_
 
@@ -56,10 +56,8 @@ This part is also applicable to simple Console-applications
 		
 		...
 		
-		// Declare a Resource Manager instance. (Include namespace if set)
-        ResourceManager LocRM = new ResourceManager("WinForms.WinFormStrings", typeof(Form1).Assembly);
-        // Assign the string for the "errorInsuffMemory" key to a message box.
-        MessageBox.Show(LocRM.GetString("errorInsuffMemory"));
+		// Access resource by Getter (Recommended as by http://stackoverflow.com/a/14503044/2003325)
+		MessageBox.Show(WinFormStrings.errorInsuffMemory);
 
 **Hint:** To force the program to start in a specific locale, uncomment one of these lines in _Program.cs_ 
 
@@ -74,3 +72,19 @@ However, this approach results that ALL strings will be in one file and can't be
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
 ## WPF
+
+## Application's default culture
+To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
+
+	![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
+
+## Fallback to Satellite Assembly
+Usually the application fallback is the main assembly (In this case Japanese) if the requested UI Culture cannot be found. 
+However, if another culture should be used as a fallback, you may do so by defining a satellite assembly for fallback:
+
+See [Packaging and Deploying Resources in Desktop Apps](https://msdn.microsoft.com/en-us/library/sb6a8618(v=vs.110).aspx) -> Ultimate Fallback to Satellite Assembly
+
+	[assembly:NeutralResourcesLanguage("fr", UltimateResourceFallbackLocation.Satellite)]
+	
+## Translate resource files
+Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)

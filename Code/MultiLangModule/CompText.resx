@@ -120,4 +120,7 @@
   <data name="errorInsuffMemory" xml:space="preserve">
     <value>メモリが不足しています。</value>
   </data>
+  <data name="helloWorld" xml:space="preserve">
+    <value>こんにちは世界</value>
+  </data>
 </root>
