@@ -84,7 +84,9 @@ However, if another culture should be used as a fallback, you may do so by defin
 
 See [Packaging and Deploying Resources in Desktop Apps](https://msdn.microsoft.com/en-us/library/sb6a8618(v=vs.110).aspx) -> Ultimate Fallback to Satellite Assembly
 
-	[assembly:NeutralResourcesLanguage("fr", UltimateResourceFallbackLocation.Satellite)]
+Set in Code or in AssemblyInfo.cs
+
+	[assembly:NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]
 	
 ## Translate resource files
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
