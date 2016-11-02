@@ -12,6 +12,9 @@ To define the application's default culture (In this case English), the _Neutral
 ![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
 
 ## C# WinForms
+
+*Example Project: WinForms*
+
 This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
 
 Following resources are used for internationalzation:
@@ -76,6 +79,9 @@ For this, only a new Resources file for the additional language Japanese must be
 However, this approach results that ALL strings will be in one file and can't be distinguished. So separated Resources-files are strongly recommended!
 	
 ## C# Code
+
+*Example Project: CodeDefaultEnglish*
+
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 
 ## C# Fallback to Satellite Assembly
@@ -95,6 +101,9 @@ There are various combinations of default language and satellite languages (The 
 * **CodeJapaneseDefaultSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
 
 ## C# WPF
+
+*Example Project: WPF*
+
 This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
 
 Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
