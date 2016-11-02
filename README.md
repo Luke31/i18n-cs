@@ -73,27 +73,39 @@ See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
 ## WPF
 This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
+
 Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
+
 Follow the very simple Tutorial [WPF: Localization using Resources and Localization Extension](http://www.broculos.net/2014/04/wpf-localization-using-resources-and.html#.WBlSQvqLSUk) and mind the hints below:
 
 * You can install the WPFLocalizationExtension using NuGet:
 
 		Install-Package WpfLocalizeExtension
 
-* Set the Resource file Access Modifier to _Public_
+* For created Resource .resx files, set the Access Modifier to _Public_
 
 * Specify the current language to the System langauge in starting your application:
 
 		LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
-		LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name); //Set Extension Culture to System culture
+		
+		//Set Extension Culture to System culture:
+		LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name);
+		
+* How to prepare your XAML, you may see here [Usage - Preparing the XAML code](https://wpflocalizeextension.codeplex.com/wikipage?title=Preparing%20the%20XAML%20code&referringTitle=Documentation)
+
+		<Window xmlns:lex="http://wpflocalizeextension.codeplex.com"
+			lex:LocalizeDictionary.DesignCulture="en"
+			lex:ResxLocalizationProvider.DefaultAssembly="WPF"
+			lex:ResxLocalizationProvider.DefaultDictionary="LocResources">
+			<!-- Some controls -->
+		</Window>
+		
+* How to access the resoruces in the XAML you may find here: [Usage - Keys](https://wpflocalizeextension.codeplex.com/wikipage?title=Keys&referringTitle=Documentation)
+
+* If you would like to access Resources from different Assemblies in the XAML, look here: [Usage - Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
 	
 * Look at the [WPFLocalizationExtension Wiki](https://wpflocalizeextension.codeplex.com/documentation) for further questions
 
-* If you would like to access Resources from different Assemblies in the XAML, look here: [Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
-
-	
-	
-	
 ### Additional helpful features
 
 * SizeToContent - Make window size automatic depending on content

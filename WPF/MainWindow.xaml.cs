@@ -26,7 +26,9 @@ namespace WPF
         public MainWindow()
         {
             LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
-            LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name); //Set Extension Culture to System culture
+
+            //Set Extension Culture to System culture:
+            LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name);
             //LocalizeDictionary.Instance.Culture = new CultureInfo("ja-JP");
 
             InitializeComponent();
