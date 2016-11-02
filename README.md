@@ -148,10 +148,12 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 
 	
 ## C# Translate resource files
+Potentially useful tool for translating resource files:
+
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
 
 ## C# Tree-View of resource-files with language
-Howto get a treeview of culture-specific resources
+How to get a treeview of culture-specific resources
 
 Unload the project
 Edit the corresponding csproj file
