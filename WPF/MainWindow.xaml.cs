@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.Extensions;
+using WPFLocalizeExtension.Engine;
 
 namespace WPF
 {
@@ -22,18 +25,23 @@ namespace WPF
     {
         public MainWindow()
         {
+            LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
+            LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name); //Set Extension Culture to System culture
+            //LocalizeDictionary.Instance.Culture = new CultureInfo("ja-JP");
+
             InitializeComponent();
 
             var txtblk = new TextBlock()
             {
-                Text = "Hello Code",
+                Text = LocResources.helloWorld,
                 VerticalAlignment = VerticalAlignment.Bottom,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
             
             var image = new Image
             {
-                Source = new BitmapImage(new Uri("Images/en.png", UriKind.RelativeOrAbsolute)),
+                Source = LocResources.img.ConvertToBitmapImage(), //Call to custom extension Method to convert Bitmap to BitmapImage
+                //Source = new BitmapImage(new Uri("Images/en.png", UriKind.RelativeOrAbsolute)), //Previous
                 VerticalAlignment = VerticalAlignment.Bottom,
                 HorizontalAlignment = HorizontalAlignment.Right,
                 Stretch = Stretch.None

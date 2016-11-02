@@ -72,7 +72,48 @@ However, this approach results that ALL strings will be in one file and can't be
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
 	
 ## WPF
-This Tutorial is based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
+This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
+Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
+Follow the very simple Tutorial [WPF: Localization using Resources and Localization Extension](http://www.broculos.net/2014/04/wpf-localization-using-resources-and.html#.WBlSQvqLSUk) and mind the hints below:
+
+* You can install the WPFLocalizationExtension using NuGet:
+
+		Install-Package WpfLocalizeExtension
+
+* Set the Resource file Access Modifier to _Public_
+
+* Specify the current language to the System langauge in starting your application:
+
+		LocalizeDictionary.Instance.SetCurrentThreadCulture = true;
+		LocalizeDictionary.Instance.Culture = new CultureInfo(CultureInfo.CurrentUICulture.Name); //Set Extension Culture to System culture
+	
+* Look at the [WPFLocalizationExtension Wiki](https://wpflocalizeextension.codeplex.com/documentation) for further questions
+
+* If you would like to access Resources from different Assemblies in the XAML, look here: [Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
+
+	
+	
+	
+### Additional helpful features
+
+* SizeToContent - Make window size automatic depending on content
+
+	<Window SizeToContent="WidthAndHeight">
+
+* SharedSizeGroup - The elements have the same size from the biggest element
+
+	<Grid.ColumnDefinitions>
+	  <ColumnDefinition x:Uid="ColumnDefinition_1" />
+	  <ColumnDefinition x:Uid="ColumnDefinition_2" />
+	  <ColumnDefinition x:Uid="ColumnDefinition_3" **SharedSizeGroup="Buttons"** />
+	  <ColumnDefinition x:Uid="ColumnDefinition_4" **SharedSizeGroup="Buttons"** />
+	  <ColumnDefinition x:Uid="ColumnDefinition_5" **SharedSizeGroup="Buttons"** />
+	</Grid.ColumnDefinitions>
+
+To pass information for localizers/translators you may use [Localization Attributes and Comments](https://msdn.microsoft.com/en-us/library/ms753944(v=vs.110).aspx)
+
+* You may define if the comments and attributes should be included in the final assembly using _LocalizationDirectivesToLocFile_
+
 
 ## Application's default culture
 To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
@@ -93,7 +134,23 @@ There are three solutions:
 
 * Code - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
 * CodeSatelliteEn - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
-* CodeDefaultEnglish - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user)
+* CodeDefaultEnglish - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
 	
 ## Translate resource files
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
+
+## Tree-View of resource-files with language
+Howto get a treeview of culture-specific resources
+
+Unload the project
+Edit the corresponding csproj file
+Locate the tags of the resources and rewrite them using the DependentUpon syntax:
+
+	<EmbeddedResource Include="Strings.de.resx">
+	  <SubType>Designer</SubType>
+	  <DependentUpon>Strings.resx</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Strings.resx">
+	  <Generator>ResXFileCodeGenerator</Generator>
+	  <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+	</EmbeddedResource>
