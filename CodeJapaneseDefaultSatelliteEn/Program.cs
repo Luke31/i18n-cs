@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Threading;
 using Company.CodeSatelliteEn.MultiLangModule;
 
-namespace Company.CodeDefaultJapaneseSatelliteEn
+namespace Company.CodeJapaneseDefaultSatelliteEn
 {
     class Program
     {

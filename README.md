@@ -92,7 +92,7 @@ There are various combinations of default language and satellite languages (The 
 
 * **CodeDefaultEnglish** - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
 * **CodeDefaultJapanese** - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
-* **CodeDefaultJapaneseSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
+* **CodeJapaneseDefaultSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
 
 ## C# WPF
 This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)

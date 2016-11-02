@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{04403CA6-18D4-43AF-99EF-B1C16B0431FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDefaultJapanese", "Code\CodeDefaultJapanese.csproj", "{DD642ADF-CBF2-4080-821C-E1608A23E76D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDefaultJapanese", "CodeDefaultJapanese\CodeDefaultJapanese.csproj", "{DD642ADF-CBF2-4080-821C-E1608A23E76D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDefaultJapaneseSatelliteEn", "CodeSatelliteEn\CodeDefaultJapaneseSatelliteEn.csproj", "{E4E58889-6C01-4E57-A43E-C05D168FAD80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeJapaneseDefaultSatelliteEn", "CodeJapaneseDefaultSatelliteEn\CodeJapaneseDefaultSatelliteEn.csproj", "{E4E58889-6C01-4E57-A43E-C05D168FAD80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeDefaultEnglish", "CodeDefaultEnglish\CodeDefaultEnglish.csproj", "{2768B3F5-8152-4C4E-A864-06FD9A1DAB8C}"
 EndProject
