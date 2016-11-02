@@ -1,6 +1,6 @@
 # i18n-cs
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
-The default language is English and translations to Japanese are added. This approach is recommended so the fallback for systems other than Japanese or English will see an English interface.
+The default language is English and translations to Japanese are added. This approach is recommended so systems other than Japanese or English will see an English interface.
 
 ## WinForms
 This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
@@ -26,7 +26,7 @@ Following resources are used for internationalzation:
 
 	![Form in Japanese](tutorial_img/1_formJapanese.png)
 
-4. Set Text of desired Element (e.g. Button) to translated to new Text.
+4. Set Text of desired Element (e.g. Button) to translated new Text.
 
 	![Form in Japanese with Japanese text](tutorial_img/1_formJapaneseTextEdited.png)
 
@@ -137,11 +137,11 @@ Set in Code or in AssemblyInfo.cs
 
 	[assembly:NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]
 	
-There are three solutions:
+There are various combinations of default language and satellite languages (The specfic VS-Project in bold):
 
-* Code - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
-* CodeSatelliteEn - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
-* CodeDefaultEnglish - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
+* **CodeDefaultEnglish** - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
+* **CodeDefaultJapanese** - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
+* **CodeDefaultJapaneseSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
 	
 ## Translate resource files
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
