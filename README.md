@@ -1,6 +1,6 @@
 # i18n-cs
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
-The default language is Japanese and translations to English are added.
+The default language is English and translations to Japanese are added. This approach is recommended so the fallback for systems other than Japanese or English will see an English interface.
 
 ## WinForms
 This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
@@ -22,15 +22,13 @@ Following resources are used for internationalzation:
 
 	![Form to translate](tutorial_img/1_formDefaultLanguage.png)
 
-3. Change Property Language of Form to English
+3. Change Property Language of Form to Japanese
 
-	**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
-
-	![Form in English](tutorial_img/1_formEnglish.png)
+	![Form in Japanese](tutorial_img/1_formJapanese.png)
 
 4. Set Text of desired Element (e.g. Button) to translated to new Text.
 
-	![Form in English with English text](tutorial_img/1_formEnglishTextEdited.png)
+	![Form in Japanese with Japanese text](tutorial_img/1_formJapaneseTextEdited.png)
 
 ### Localizable Error-message and dialog-boxes (Project resources)
 
@@ -38,17 +36,17 @@ This part is also applicable to simple Console-applications
 
 1. Add new Resource-file to the Project
 
-	**Hint:** This file is the fallback for the current default language (Japanese), so the text in this file should be Japanese.
+	**Hint:** This file is the fallback for the current default language (English), so the text in this file should be English.
 
 	![New Project resources](tutorial_img/2_projectResourceName.png)
 	
-2. Enter a new string with a default Japanese text.
-
-	![Japanese Text](tutorial_img/2_projectResJp.png) -> 
-
-3. Repeat step 1 and 2 with a new file named _WinFormStrings.en.resx_
+2. Enter a new string with a default English text.
 
 	![Japanese Text](tutorial_img/2_projectResEn.png)
+
+3. Repeat step 1 and 2 with a new file named _WinFormStrings.ja.resx_
+
+	![Japanese Text](tutorial_img/2_projectResJp.png)
 
 4. To access the manually added resources (e.g. on a button-click) use the following code:
 
@@ -61,11 +59,11 @@ This part is also applicable to simple Console-applications
 
 **Hint:** To force the program to start in a specific locale, uncomment one of these lines in _Program.cs_ 
 
-	//Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP"); //Japanese (Default of this project)
-    //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB"); //English	
+	//Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP"); //Japanese
+    //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-GB"); //English (Default of this project)
 	
 **Hint:** Instead of creating a new default resources-file the existing default Resources.resx file under Properties may be used. (See [this stackoverflow answer](http://stackoverflow.com/a/1129152/2003325)).
-For this, only a new Resources file for the additional language English must be added: _Resources.en.resx_.
+For this, only a new Resources file for the additional language Japanese must be added: _Resources.ja.resx_.
 However, this approach results that ALL strings will be in one file and can't be distinguished. So separated Resources-files are strongly recommended!
 	
 ## Code
@@ -123,12 +121,14 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 		</Grid.ColumnDefinitions>
 
 ## Application's default culture
-To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
+To define the application's default culture (In this case English), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
+
+**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
 
 ![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
 
 ## Fallback to Satellite Assembly
-Usually the application fallback is the main assembly (In this case Japanese) if the requested UI Culture cannot be found. 
+Usually the application fallback is the main assembly if the requested UI Culture cannot be found. 
 However, if another culture should be used as a fallback, you may do so by defining a satellite assembly for fallback:
 
 See [Packaging and Deploying Resources in Desktop Apps](https://msdn.microsoft.com/en-us/library/sb6a8618(v=vs.110).aspx) -> Ultimate Fallback to Satellite Assembly

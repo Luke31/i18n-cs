@@ -59,15 +59,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WinFormStrings.resx</DependentUpon>
     </Compile>
-    <Compile Include="WinFormStrings.en.Designer.cs">
+    <Compile Include="WinFormStrings.ja.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WinFormStrings.en.resx</DependentUpon>
+      <DependentUpon>WinFormStrings.ja.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.de.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.en.resx">
+    <EmbeddedResource Include="Form1.ja.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -83,9 +80,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WinFormStrings.en.resx">
+    <EmbeddedResource Include="WinFormStrings.ja.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>WinFormStrings.en.Designer.cs</LastGenOutput>
+      <LastGenOutput>WinFormStrings.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,9 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\img.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\jp.png" />

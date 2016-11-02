@@ -61,7 +61,7 @@ namespace WinForms {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to メモリが不足しています。.
+        ///   Looks up a localized string similar to Insufficient memory.
         /// </summary>
         internal static string errorInsuffMemory {
             get {
