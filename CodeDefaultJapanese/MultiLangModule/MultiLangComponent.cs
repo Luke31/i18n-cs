@@ -2,7 +2,7 @@
 using System.Resources;
 using System.Runtime.Remoting.Channels;
 
-namespace Company.Code.MultiLangModule
+namespace Company.CodeDefaultJapanese.MultiLangModule
 {
     class MultiLangComponent
     {
@@ -13,7 +13,7 @@ namespace Company.Code.MultiLangModule
 
             // Alternatie access by declaring a Resource Manager instance (Microsoft Tutorial)
             // Not recommend due to magic strings!
-            var locRm = new ResourceManager("Company.Code.MultiLangModule.CompText", typeof(MultiLangComponent).Assembly);
+            var locRm = new ResourceManager("Company.CodeDefaultJapanese.MultiLangModule.CompText", typeof(MultiLangComponent).Assembly);
             Console.WriteLine(locRm.GetString("helloWorld"));
 
 

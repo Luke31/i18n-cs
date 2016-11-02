@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CodeDefaultEnglish {
+namespace Company.CodeDefaultEnglish.MultiLangModule {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CodeDefaultEnglish {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TextResource {
+    internal class CompText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TextResource() {
+        internal CompText() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CodeDefaultEnglish {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeDefaultEnglish.TextResource", typeof(TextResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Company.CodeDefaultEnglish.MultiLangModule.CompText", typeof(CompText).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace CodeDefaultEnglish {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insufficient memory.
+        /// </summary>
+        internal static string errorInsuffMemory {
+            get {
+                return ResourceManager.GetString("errorInsuffMemory", resourceCulture);
             }
         }
         

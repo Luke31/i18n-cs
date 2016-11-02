@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
-using Company.CodeSatelliteEn.MultiLangModule;
+using Company.CodeJapaneseDefaultSatelliteEn.MultiLangModule;
 
 namespace Company.CodeJapaneseDefaultSatelliteEn
 {

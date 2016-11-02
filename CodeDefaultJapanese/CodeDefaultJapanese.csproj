@@ -48,6 +48,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompText.resx</DependentUpon>
     </Compile>
+    <Compile Include="MultiLangModule\CompText.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompText.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="MultiLangModule\MultiLangComponent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,7 +61,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MultiLangModule\CompText.en.resx" />
+    <EmbeddedResource Include="MultiLangModule\CompText.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompText.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="MultiLangModule\CompText.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CompText.Designer.cs</LastGenOutput>

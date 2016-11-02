@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
-using Company.Code.MultiLangModule;
+using Company.CodeDefaultJapanese.MultiLangModule;
 
 namespace Company.CodeDefaultJapanese
 {

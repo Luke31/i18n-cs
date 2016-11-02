@@ -7,7 +7,7 @@
     <ProjectGuid>{2768B3F5-8152-4C4E-A864-06FD9A1DAB8C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeDefaultEnglish</RootNamespace>
+    <RootNamespace>Company.CodeDefaultEnglish</RootNamespace>
     <AssemblyName>CodeDefaultEnglish</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -43,30 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiLangModule\CompText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiLangModule\CompText.ja.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompText.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MultiLangModule\MultiLangComponent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextResource.ja.Designer.cs">
-      <DependentUpon>TextResource.ja.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="TextResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TextResource.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TextResource.ja.resx">
+    <EmbeddedResource Include="MultiLangModule\CompText.resx">
+      <LastGenOutput>CompText.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TextResource.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="TextResource.resx">
+    <EmbeddedResource Include="MultiLangModule\CompText.ja.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TextResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>CompText.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

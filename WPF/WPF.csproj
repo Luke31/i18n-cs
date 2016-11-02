@@ -88,15 +88,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\BitmapExtension.cs" />
-    <Compile Include="LocResources.ja.Designer.cs">
-      <DependentUpon>LocResources.ja.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="LocResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LocResources.ja.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocResources.ja.resx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
