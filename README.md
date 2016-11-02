@@ -110,22 +110,17 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 
 * SizeToContent - Make window size automatic depending on content
 
-	<Window SizeToContent="WidthAndHeight">
+		<Window SizeToContent="WidthAndHeight">
 
 * SharedSizeGroup - The elements have the same size from the biggest element
 
-	<Grid.ColumnDefinitions>
-	  <ColumnDefinition x:Uid="ColumnDefinition_1" />
-	  <ColumnDefinition x:Uid="ColumnDefinition_2" />
-	  <ColumnDefinition x:Uid="ColumnDefinition_3" **SharedSizeGroup="Buttons"** />
-	  <ColumnDefinition x:Uid="ColumnDefinition_4" **SharedSizeGroup="Buttons"** />
-	  <ColumnDefinition x:Uid="ColumnDefinition_5" **SharedSizeGroup="Buttons"** />
-	</Grid.ColumnDefinitions>
-
-To pass information for localizers/translators you may use [Localization Attributes and Comments](https://msdn.microsoft.com/en-us/library/ms753944(v=vs.110).aspx)
-
-* You may define if the comments and attributes should be included in the final assembly using _LocalizationDirectivesToLocFile_
-
+		<Grid.ColumnDefinitions>
+		  <ColumnDefinition x:Uid="ColumnDefinition_1" />
+		  <ColumnDefinition x:Uid="ColumnDefinition_2" />
+		  <ColumnDefinition x:Uid="ColumnDefinition_3" **SharedSizeGroup="Buttons"** />
+		  <ColumnDefinition x:Uid="ColumnDefinition_4" **SharedSizeGroup="Buttons"** />
+		  <ColumnDefinition x:Uid="ColumnDefinition_5" **SharedSizeGroup="Buttons"** />
+		</Grid.ColumnDefinitions>
 
 ## Application's default culture
 To define the application's default culture (In this case Japanese), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
