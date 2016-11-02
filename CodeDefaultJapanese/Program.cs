@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Threading;
 using Company.Code.MultiLangModule;
 
-namespace Company.Code
+namespace Company.CodeDefaultJapanese
 {
     class Program
     {

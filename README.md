@@ -2,7 +2,16 @@
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
 The default language is English and translations to Japanese are added. This approach is recommended so systems other than Japanese or English will see an English interface.
 
-## WinForms
+# C#
+
+## C# Application's default culture
+To define the application's default culture (In this case English), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
+
+**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
+
+![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
+
+## C# WinForms
 This Tutorial is based on Microsofts MSDN Tutorial [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/y99d1cd3(v=vs.100).aspx)
 
 Following resources are used for internationalzation:
@@ -66,10 +75,26 @@ This part is also applicable to simple Console-applications
 For this, only a new Resources file for the additional language Japanese must be added: _Resources.ja.resx_.
 However, this approach results that ALL strings will be in one file and can't be distinguished. So separated Resources-files are strongly recommended!
 	
-## Code
+## C# Code
 See WinForms -> Localizable Error-message and dialog-boxes (Project resources)
+
+## C# Fallback to Satellite Assembly
+Usually the application fallback is the main assembly if the requested UI Culture cannot be found. 
+However, if another culture should be used as a fallback, you may do so by defining a satellite assembly for fallback:
+
+See [Packaging and Deploying Resources in Desktop Apps](https://msdn.microsoft.com/en-us/library/sb6a8618(v=vs.110).aspx) -> Ultimate Fallback to Satellite Assembly
+
+Set in Code or in AssemblyInfo.cs
+
+	[assembly:NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]
 	
-## WPF
+There are various combinations of default language and satellite languages (The specfic VS-Project in bold):
+
+* **CodeDefaultEnglish** - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
+* **CodeDefaultJapanese** - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
+* **CodeDefaultJapaneseSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
+
+## C# WPF
 This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
 
 Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
@@ -120,33 +145,12 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 		  <ColumnDefinition x:Uid="ColumnDefinition_5" **SharedSizeGroup="Buttons"** />
 		</Grid.ColumnDefinitions>
 
-## Application's default culture
-To define the application's default culture (In this case English), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
 
-**Hint:** Always use _English_ and not a specific English locale such as _English (United States)_
-
-![AssemblyInfo Default Culture](tutorial_img/AssemblyInfo_NeutralResourcesLanguageAttribute.png)
-
-## Fallback to Satellite Assembly
-Usually the application fallback is the main assembly if the requested UI Culture cannot be found. 
-However, if another culture should be used as a fallback, you may do so by defining a satellite assembly for fallback:
-
-See [Packaging and Deploying Resources in Desktop Apps](https://msdn.microsoft.com/en-us/library/sb6a8618(v=vs.110).aspx) -> Ultimate Fallback to Satellite Assembly
-
-Set in Code or in AssemblyInfo.cs
-
-	[assembly:NeutralResourcesLanguage("en", UltimateResourceFallbackLocation.Satellite)]
 	
-There are various combinations of default language and satellite languages (The specfic VS-Project in bold):
-
-* **CodeDefaultEnglish** - Default language is English, Satellite Japanese -> Fallback will be English (e.g. German user) **Recommended**
-* **CodeDefaultJapanese** - Default language is Japanese, Satellite English -> Fallback will be Japanese (e.g. German user)
-* **CodeDefaultJapaneseSatelliteEn** - Default language is Japanese, Satellite English AND Japanese -> Ultimate Fallback on English -> Fallback will be English
-	
-## Translate resource files
+## C# Translate resource files
 Zeta Resource Editor (https://www.zeta-resource-editor.com/index.html)
 
-## Tree-View of resource-files with language
+## C# Tree-View of resource-files with language
 Howto get a treeview of culture-specific resources
 
 Unload the project
@@ -161,3 +165,7 @@ Locate the tags of the resources and rewrite them using the DependentUpon syntax
 	  <Generator>ResXFileCodeGenerator</Generator>
 	  <LastGenOutput>Strings.Designer.cs</LastGenOutput>
 	</EmbeddedResource>
+	
+# Visual C++
+	
+# Python
