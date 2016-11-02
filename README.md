@@ -2,7 +2,7 @@
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
 The default language is English and translations to Japanese are added. This approach is recommended so systems other than Japanese or English will see an English interface.
 
-# C#
+# C-Sharp
 
 ## C# Application's default culture
 To define the application's default culture (In this case English), the _NeutralResourcesLanguageAttribute_ AssemblyInfo must be set:
