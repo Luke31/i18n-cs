@@ -178,39 +178,56 @@ Locate the tags of the resources and rewrite them using the DependentUpon syntax
 	</EmbeddedResource>
 	
 # Visual C++
+
+*Example Project: Cpp*
+
 Basic for localization in Visual C++ are resources in .dll or .exe [Implementing Globalization / Multilingual feature in win32 API application](http://stackoverflow.com/a/1654791/2003325)
 
 Each resource contains a language identifier. The same resource with the same name may exist with different languages.
 To access these resources the Windows SDK LoadString, LoadBitmap etc. may be used.
-
-![String Table English](tutorial_img/3_stringTableEN)
-	
-![String Table Japanese](tutorial_img/3_stringTableJP)
 	
 Strings in your code should be in a _String Table resource_ and retrieved using LoadString (or more neutrally FindResource).
 
-The following wrapper function using _LoadString_ for loading a string from a resource is from this [Stackoverflow: c++, Win32 LoadString wrapper](http://stackoverflow.com/a/33336980/2003325)
+1. Create resource and add String Tables for both languages English and Japanese
 
-	std::wstring LoadStringW(unsigned int id)
-	{
-		const wchar_t* p = nullptr;
-		int len = ::LoadStringW(nullptr, id, reinterpret_cast<LPWSTR>(&p), 0);
-		if (len > 0)
+	![String Table English](tutorial_img/3_stringTableEN.png)
+	
+	![String Table Japanese](tutorial_img/3_stringTableJP.png)
+
+2. Create the following wrapper function using _LoadString_ for loading a string from a resource (Source: [Stackoverflow post: c++, Win32 LoadString wrapper](http://stackoverflow.com/a/33336980/2003325)):
+
+		std::wstring LoadStringW(unsigned int id)
 		{
-			return std::wstring(p, static_cast<size_t>(len));
+			const wchar_t* p = nullptr;
+			int len = ::LoadStringW(nullptr, id, reinterpret_cast<LPWSTR>(&p), 0);
+			if (len > 0)
+			{
+				return std::wstring(p, static_cast<size_t>(len));
+			}
+			// Return empty string; optionally replace with throwing an exception.
+			return std::wstring();
 		}
-		// Return empty string; optionally replace with throwing an exception.
-		return std::wstring();
-	}
 
-**Hint:** To enable our application to support Unicode output in console as well as in stdout, we use the _wmain_ signature and set the following line at the beginning of our application:
+3. Enable your application to support Unicode output in console as well as in stdout, use the _wmain_ signature and set the following lines at the beginning of your application:
 
-	int wmain(int argc, wchar_t* argv[])
-	{
-		_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT
-		//stdout may now be written to file (First character must be ASCII if output is written to file)
-		std::wcout << L"Enabling Unicode support" << std::endl;
-		...
-	}
+		int wmain(int argc, wchar_t* argv[])
+		{
+			_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT
+			//stdout may now be written to file (First character must be ASCII if output is written to file)
+			std::wcout << L"Enabling Unicode support" << std::endl;
+			...
+		}
+	
+4. Load and output your string:
+
+		//Load multi-lang resource
+		std::wstring str = LoadStringW(IDS_HW);
+
+		//Output using wprintf
+		wprintf(str.c_str());
+		std::wcout << std::endl;
+
+		//Output using wcout
+		std::wcout << str << std::endl;
 
 # Python
