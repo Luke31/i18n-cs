@@ -1,62 +1,65 @@
-// Cpp.cpp : Defines the entry point for the console application.
+﻿// Cpp.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
-#include "resource.h"
+#include "resource.h" //Enables us to load our resources -> multi-lang strings
+#include <string>
+#include <iostream>
+#include <io.h> //for setting outputmode UNICODE
+#include <fcntl.h> //contains _O_U16TEXT
 
-//char * LoadStringFromResource(unsigned int id)
-//{
-//	// szBuffer is a globally pre-defined buffer of some maximum length
-//	LoadString(ghInst, id, szBuffer, bufferSize);
-//	// yes, I know that strdup has problems. But you get the idea.
-//	return strdup(szBuffer);
-//}
-
-int _tmain(int argc, _TCHAR* argv[])
-{
+int PrintUserLocale() {
 	LCID lcid = GetUserDefaultLCID();
 	WCHAR strNameBuffer[LOCALE_NAME_MAX_LENGTH];
 	DWORD error = ERROR_SUCCESS;
-
-	// Get the name for locale 0x10407 (German (German), with phonebook sort)
+	//Evaluate locale
 	if (LCIDToLocaleName(lcid, strNameBuffer, LOCALE_NAME_MAX_LENGTH, 0) == 0)
 	{
-		// There was an error
 		error = GetLastError();
+		return 1;
 	}
 	else
 	{
-		// Success, display the locale name we found
 		wprintf(L"Locale: %s\n", strNameBuffer);
+		return 0;
 	}
+}
 
-	//int resourceName = IDS_HW;
-	////_TCHAR* test = LoadString(NULL, TEXT("HW"), 
+std::wstring LoadStringW(unsigned int id)
+{
+	const wchar_t* p = nullptr;
+	int len = ::LoadStringW(nullptr, id, reinterpret_cast<LPWSTR>(&p), 0);
+	if (len > 0)
+	{
+		return std::wstring(p, static_cast<size_t>(len));
+	}
+	// Return empty string; optionally replace with throwing an exception.
+	return std::wstring();
+}
 
-	//char* errMem = LoadStringFromResource(IDS_ERROR_MEMORY);
-	//char* errText = LoadStringFromResource(IDS_ERROR_TEXT);
-	//MessageBox(NULL, errMem, errText, MB_OK | MB_ICONERROR);
-	//free(errMem);
-	//free(errText);
+//wmain: http://stackoverflow.com/a/3299860/2003325
+int wmain(int argc, wchar_t* argv[])
+{
+	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT
+	//stdout may now be written to file (First character must be ASCII if output is written to file)
+	std::wcout << L"Enabling Unicode support" << std::endl;
 
-	//HRSRC hResource;
-	//HGLOBAL hResourceData;
-	//LPCSTR usageStr, buf;
-	//DWORD dwResourceSize, bufSize;
-	//hResource = FindResource(NULL, MAKEINTRESOURCE(IDS_HW), IDS_HW); //TEXT("TEXT")
-	//hResourceData = LoadResource(NULL, hResource);
-	//usageStr = (LPCSTR)LockResource(hResourceData);
-	//dwResourceSize = SizeofResource(NULL, hResource);
-	//bufSize = dwResourceSize + sizeof(char);
-	//buf = (LPCSTR)malloc(bufSize);
-	//memset((LPVOID)buf, 0, bufSize);
-	//memcpy((LPVOID)buf, usageStr, dwResourceSize);
-	////DBGPRINT(LOG_LEVEL_INFO, "%hs", buf);
-	//free((LPVOID)buf);
+	PrintUserLocale();
 
-	
-	//printf("%s\n", LoadStringFromResource());
+	//Load multi-lang resource
+	std::wstring str = LoadStringW(IDS_HW);
 
-	system("PAUSE");
+	//Output using wprintf
+	wprintf(str.c_str());
+	std::wcout << std::endl;
+
+	//Output using wcout
+	std::wcout << str << std::endl;
+
 	return 0;
 }
+
+
+//Old unused?
+////Set current system locale (http://stackoverflow.com/a/3130688/2003325)
+//std::locale::global(std::locale("")); 

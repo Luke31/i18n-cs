@@ -178,5 +178,41 @@ Locate the tags of the resources and rewrite them using the DependentUpon syntax
 	</EmbeddedResource>
 	
 # Visual C++
+Basic for localization in Visual C++ are resources in .dll or .exe [Implementing Globalization / Multilingual feature in win32 API application](http://stackoverflow.com/a/1654791/2003325)
+
+Each resource contains a language identifier. The same resource with the same name may exist with different languages.
+To access these resources the Windows SDK LoadString, LoadBitmap etc. may be used (See [Menus and Other Resources](https://msdn.microsoft.com/en-us/library/ms632583(VS.85).aspx))
+
+	![String Table English](tutorial_img/3_stringTableEN)
 	
+	![String Table Japanese](tutorial_img/3_stringTableJP)
+	
+Strings in your code should be in a _String Table resource_ and retrieved using LoadString (or more neutrally FindResource).
+
+Information on _LoadString_ and how to embed it in a wrapper: [c++, Win32 LoadString wrapper](http://stackoverflow.com/a/33336980/2003325)
+
+Here we use the wrapper function to load a string from the resource:
+
+	std::wstring LoadStringW(unsigned int id)
+	{
+		const wchar_t* p = nullptr;
+		int len = ::LoadStringW(nullptr, id, reinterpret_cast<LPWSTR>(&p), 0);
+		if (len > 0)
+		{
+			return std::wstring(p, static_cast<size_t>(len));
+		}
+		// Return empty string; optionally replace with throwing an exception.
+		return std::wstring();
+	}
+
+**Hint:** To enable our application to support Unicode output in console as well as in stdout, we use the _wmain_ signature and set the following line at the beginning of our application:
+
+	int wmain(int argc, wchar_t* argv[])
+	{
+		_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT
+		//stdout may now be written to file (First character must be ASCII if output is written to file)
+		std::wcout << L"Enabling Unicode support" << std::endl;
+		...
+	}
+
 # Python
