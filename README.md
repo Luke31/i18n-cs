@@ -181,17 +181,15 @@ Locate the tags of the resources and rewrite them using the DependentUpon syntax
 Basic for localization in Visual C++ are resources in .dll or .exe [Implementing Globalization / Multilingual feature in win32 API application](http://stackoverflow.com/a/1654791/2003325)
 
 Each resource contains a language identifier. The same resource with the same name may exist with different languages.
-To access these resources the Windows SDK LoadString, LoadBitmap etc. may be used (See [Menus and Other Resources](https://msdn.microsoft.com/en-us/library/ms632583(VS.85).aspx))
+To access these resources the Windows SDK LoadString, LoadBitmap etc. may be used.
 
-	![String Table English](tutorial_img/3_stringTableEN)
+![String Table English](tutorial_img/3_stringTableEN)
 	
-	![String Table Japanese](tutorial_img/3_stringTableJP)
+![String Table Japanese](tutorial_img/3_stringTableJP)
 	
 Strings in your code should be in a _String Table resource_ and retrieved using LoadString (or more neutrally FindResource).
 
-Information on _LoadString_ and how to embed it in a wrapper: [c++, Win32 LoadString wrapper](http://stackoverflow.com/a/33336980/2003325)
-
-Here we use the wrapper function to load a string from the resource:
+The following wrapper function using _LoadString_ for loading a string from a resource is from this [Stackoverflow: c++, Win32 LoadString wrapper](http://stackoverflow.com/a/33336980/2003325)
 
 	std::wstring LoadStringW(unsigned int id)
 	{
