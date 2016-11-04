@@ -229,5 +229,14 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 
 		//Output using wcout
 		std::wcout << str << std::endl;
+		
+* **Hint:** Following includes are required:
+
+		#include "stdafx.h"
+		#include "resource.h" //Enables us to load our resources -> multi-lang strings
+		#include <string>
+		#include <iostream>
+		#include <io.h> //for setting outputmode UNICODE
+		#include <fcntl.h> //contains _O_U16TEXT
 
 # Python
