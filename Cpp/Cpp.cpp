@@ -40,7 +40,7 @@ std::wstring LoadStringW(unsigned int id)
 //wmain: http://stackoverflow.com/a/3299860/2003325
 int wmain(int argc, wchar_t* argv[])
 {
-	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT
+	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
 	//stdout may now be written to file (First character must be ASCII if output is written to file)
 	std::wcout << L"Enabling Unicode support" << std::endl;
 
