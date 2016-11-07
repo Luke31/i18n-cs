@@ -1,0 +1,2 @@
+print(_('Hello world'))
+

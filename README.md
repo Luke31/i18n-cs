@@ -239,4 +239,43 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 		#include <io.h> //for setting outputmode UNICODE
 		#include <fcntl.h> //contains _O_U16TEXT
 
-# Python
+# Python (IronPython 2.7)
+
+*Example project: IronPython*
+
+This tutorial is based on [IronPython Python 2.7 - Internationalizing your programs and modules](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#internationalizing-your-programs-and-modules)
+
+1. Mark Strings with 
+
+		_('...Text...')
+	
+2. Run _pygettext.py_ (Similar to GNU xgettext) from _C:\Python27\Tools\i18n_ on your IronPython-file
+	**Hint:** IronPython does not contain a Tools\i18n folder! Use a regular Python 2.7 instance instead!
+
+		pygettext.py -o messages.po IronPython.py
+	
+3. Transate Strings in generated _messages.po_ (Make sure the file is saved in Unicode)
+
+		#: IronPython.py:1
+		msgid "Hello world"
+		msgstr "こんにちは世界"
+
+4. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
+
+		msgfmt.py messages
+		
+5. Localizing module (Example-Module named _IronPython_)
+
+		import gettext
+		t = gettext.translation('IronPython', '/usr/share/locale')
+		_ = t.ugettext
+		
+* Change languages on the fly:
+
+		import gettext
+
+		langEn = gettext.translation('IronPython', languages=['en'])
+		langJa = gettext.translation('IronPython', languages=['ja'])
+
+		# start by using language1
+		langEn.install()
