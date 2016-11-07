@@ -250,6 +250,7 @@ This tutorial is based on [IronPython Python 2.7 - Internationalizing your progr
 		_('...Text...')
 	
 2. Run _pygettext.py_ (Similar to GNU xgettext) from _C:\Python27\Tools\i18n_ on your IronPython-file
+	
 	**Hint:** IronPython does not contain a Tools\i18n folder! Use a regular Python 2.7 instance instead!
 
 		pygettext.py -o messages.po IronPython.py
