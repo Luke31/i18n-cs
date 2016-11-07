@@ -1,2 +1,0 @@
-print(_('Hello world'))
-

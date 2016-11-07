@@ -244,6 +244,8 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 *Example project: IronPython*
 
 This tutorial is based on [IronPython Python 2.7 - Internationalizing your programs and modules](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#internationalizing-your-programs-and-modules)
+Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
+[Unicode mess](http://www.wefearchange.org/2012/06/the-right-way-to-internationalize-your.html)
 
 1. Mark Strings with 
 
@@ -253,17 +255,21 @@ This tutorial is based on [IronPython Python 2.7 - Internationalizing your progr
 	
 	**Hint:** IronPython does not contain a Tools\i18n folder! Use a regular Python 2.7 instance instead!
 
-		pygettext.py -o messages.po IronPython.py
+		pygettext.py sample/IronPython.py
 	
-3. Transate Strings in generated _messages.po_ (Make sure the file is saved in Unicode)
+3. Copy the generated _messages.pot_ template file and transate the strings to a new file called _ja.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode)
 
-		#: IronPython.py:1
-		msgid "Hello world"
-		msgstr "こんにちは世界"
+	**Hint:** You may use the Tool [Poedit](https://poedit.net/) to translate your strings:
+	
+	![Open pot Template](tutorial_img/4_poedit_fromtemplate.png)
+	
+	![Edit text and save as ja.po](tutorial_img/4_poedit_text.png)
 
 4. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
 
-		msgfmt.py messages
+	**Hint:** If you've used Poedit, the tool has already done this for you :)
+
+		msgfmt.py ja
 		
 5. Localizing module (Example-Module named _IronPython_)
 
@@ -280,3 +286,7 @@ This tutorial is based on [IronPython Python 2.7 - Internationalizing your progr
 
 		# start by using language1
 		langEn.install()
+		
+**Hint:** If file contains UTF-8 characters, put this at top of file:
+	
+	# -*- coding: utf-8 -*-

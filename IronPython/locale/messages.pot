@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-11-07 11:57+Tokyo Standard Time\n"
+"POT-Creation-Date: 2016-11-07 14:47+Tokyo Standard Time\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: IronPython.py:1
+#: sample/core.py:1
 msgid "Hello world"
-msgstr "こんにちは世界"
+msgstr ""
 

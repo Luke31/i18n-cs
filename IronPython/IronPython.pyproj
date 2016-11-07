@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>229a1895-1b95-4a95-9c40-426b82fc86f1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>IronPython.py</StartupFile>
+    <StartupFile>sample\core.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,10 +25,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="IronPython.py" />
+    <InterpreterReference Include="{80659ab7-4d53-4e0c-8588-a766116cbd46}\2.7" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="{80659ab7-4d53-4e0c-8588-a766116cbd46}\2.7" />
+    <Folder Include="sample\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sample\core.py" />
+    <Compile Include="sample\__init__.py" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
