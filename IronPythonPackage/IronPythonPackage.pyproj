@@ -38,6 +38,9 @@
     <Compile Include="main.py" />
     <Compile Include="sample\core.py" />
     <Compile Include="sample\__init__.py" />
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="sample\locale\ja\LC_MESSAGES\messages.mo" />
