@@ -247,6 +247,10 @@ This tutorial is based on [IronPython Python 2.7 - Internationalizing your progr
 Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
 [Unicode mess](http://www.wefearchange.org/2012/06/the-right-way-to-internationalize-your.html)
 
+[A complete guide to i18n in Python](http://www.mattlayman.com/2015/i18n.html)
+with Github project:
+[Github: handroll](https://github.com/handroll/handroll)
+
 1. Mark Strings with 
 
 		_('...Text...')
