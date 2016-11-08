@@ -9,26 +9,6 @@ using log4net.Core;
 namespace IronPythonCsharp.Api
 {
     /// <summary>
-    /// 端末のモードです。
-    /// </summary>
-    public enum DeviceMode
-    {
-        Maintenance = 2,
-        Test = 1,
-        Production = 0
-    }
-
-    /// <summary>
-    /// ディスクアクセスモードです。
-    /// </summary>
-    public enum RevisionAccessMode
-    {
-        Maintenance = 2,
-        Test = 1,
-        Production = 0
-    }
-
-    /// <summary>
     /// IronPython と通信するためのインターフェース
     /// </summary>
     public interface IPythonApi
