@@ -241,7 +241,7 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 
 # Python (IronPython 2.7)
 
-*Example project: IronPython*
+*Example project: IronPythonModule and IronPythonApplication*
 
 This tutorial is based on [IronPython Python 2.7 - Internationalizing your programs and modules](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#internationalizing-your-programs-and-modules)
 Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
@@ -257,25 +257,31 @@ Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with th
 
 		pygettext.py sample/IronPython.py
 	
-3. Copy the generated _messages.pot_ template file and transate the strings to a new file called _ja.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode)
+3. Copy the generated _messages.pot_ template file and transate the strings to a new file called _messages.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode)
 
 	**Hint:** You may use the Tool [Poedit](https://poedit.net/) to translate your strings:
 	
 	![Open pot Template](tutorial_img/4_poedit_fromtemplate.png)
 	
-	![Edit text and save as ja.po](tutorial_img/4_poedit_text.png)
+	![Edit text and save as messages.po](tutorial_img/4_poedit_text.png)
 
 4. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
 
 	**Hint:** If you've used Poedit, the tool has already done this for you :)
 
-		msgfmt.py ja
+		msgfmt.py messages
 		
-5. Localizing module (Example-Module named _IronPython_)
+The next steps depend on whether you would like to localize your whole application or just a module
+		
+5. Localizing module (Example-Module named _sample_)
 
 		import gettext
 		t = gettext.translation('IronPython', '/usr/share/locale')
 		_ = t.ugettext
+
+5. Localizing application
+
+	
 		
 * Change languages on the fly:
 

@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{7
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cpp", "Cpp\Cpp.vcxproj", "{4DD312A5-4EDB-4AA1-BD09-254C8611205D}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "IronPython", "IronPython\IronPython.pyproj", "{229A1895-1B95-4A95-9C40-426B82FC86F1}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "IronPythonModule", "IronPythonModule\IronPythonModule.pyproj", "{229A1895-1B95-4A95-9C40-426B82FC86F1}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "IronPythonApplication", "IronPythonApplication\IronPythonApplication.pyproj", "{2230AB45-F6B5-422D-A1A8-6D0861902065}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,12 @@ Global
 		{229A1895-1B95-4A95-9C40-426B82FC86F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{229A1895-1B95-4A95-9C40-426B82FC86F1}.Release|x64.ActiveCfg = Release|Any CPU
 		{229A1895-1B95-4A95-9C40-426B82FC86F1}.Release|x86.ActiveCfg = Release|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Release|x64.ActiveCfg = Release|Any CPU
+		{2230AB45-F6B5-422D-A1A8-6D0861902065}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
