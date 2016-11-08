@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2230ab45-f6b5-422d-a1a8-6d0861902065}</ProjectGuid>
+    <ProjectGuid>229a1895-1b95-4a95-9c40-426b82fc86f1</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
     <StartupFile>sample\core.py</StartupFile>
@@ -14,7 +14,7 @@
     <LaunchProvider>IronPython (.NET) launcher</LaunchProvider>
     <InterpreterVersion>2.7</InterpreterVersion>
     <OutputPath>.</OutputPath>
-    <Name>IronPythonApplication</Name>
+    <Name>IronPythonPackage</Name>
     <RootNamespace>IronPython</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -29,9 +29,9 @@
     <InterpreterReference Include="{80659ab7-4d53-4e0c-8588-a766116cbd46}\2.7" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="locale\" />
-    <Folder Include="locale\ja\" />
-    <Folder Include="locale\ja\LC_MESSAGES\" />
+    <Folder Include="sample\locale\" />
+    <Folder Include="sample\locale\ja\" />
+    <Folder Include="sample\locale\ja\LC_MESSAGES\" />
     <Folder Include="sample\" />
   </ItemGroup>
   <ItemGroup>
@@ -40,9 +40,9 @@
     <Compile Include="sample\__init__.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="locale\ja\LC_MESSAGES\messages.mo" />
-    <Content Include="locale\ja\LC_MESSAGES\messages.po" />
-    <Content Include="locale\messages.pot" />
+    <Content Include="sample\locale\ja\LC_MESSAGES\messages.mo" />
+    <Content Include="sample\locale\ja\LC_MESSAGES\messages.po" />
+    <Content Include="sample\locale\messages.pot" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
