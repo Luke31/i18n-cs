@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+# UNUSED - Not used for IronPython build and deployment!
+
 from distutils.core import setup
 
 setup(name='Sample',

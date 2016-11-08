@@ -1,0 +1,27 @@
+
+1 VERSIONINFO
+FILEVERSION 3,0,1,0
+PRODUCTVERSION 3,0,1,0
+FILEOS 0x40004
+FILETYPE 0x2
+{
+BLOCK "StringFileInfo"
+{
+	BLOCK "041104B0"
+	{
+		VALUE "CompanyName", "CO-CONV, Corp."
+		VALUE "FileDescription", "Localization Sample"
+		VALUE "FileVersion", "0.9.0.0"
+		VALUE "InternalName", "Sample.dll"
+		VALUE "LegalCopyright", "Copyright (C) CO-CONV, Corp."
+		VALUE "OriginalFilename", "Sample.dll"
+		VALUE "ProductName", "Sample"
+		VALUE "ProductVersion", "0.9.0.0"
+	}
+}
+
+BLOCK "VarFileInfo"
+{
+	VALUE "Translation", 0x0411 0x04B0
+}
+}
