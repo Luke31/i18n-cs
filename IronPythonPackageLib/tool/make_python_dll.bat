@@ -68,5 +68,9 @@ for %%d in (sample package stdipy stdipyencod) do (
 )
 
 rem ========= Copy translations =========
+cd %~dp0
+
+set LOCALE_DIR=..\locale\
+robocopy.exe "%LOCALE_DIR%\" "%BIN_DIR%locale\\" /E /V /NP /MIR
 
 cd %~dp0
