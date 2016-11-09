@@ -267,16 +267,16 @@ Following steps have been taken in the example-project to achieve this translati
 	
 2. Run _pygettext.py_ (Similar to GNU xgettext) from _C:\Python27\Tools\i18n_ on your IronPython-packages containing your .py-files
 	
-	**Hint:** IronPython does not contain a Tools\i18n folder! Use the one from a regular Python 2.7 instance instead (e.g. copied it to _IronPythonPackageLib_ for example)
+	**Hint:** IronPython does not contain a Tools\i18n folder! Use the one from a regular Python 2.7 instance instead (in the example _IronPythonPackageLib_ already contains a copy of _pygettext.py_ for convenience)
 
 		pygettext.py -d sample sample/*.py
 		pygettext.py -d package package/*.py
 		
 	This will get you a _sample.pot_ and _package.pot_ template file containing all the marked strings per package.
 	
-3. Move the generated _sample.pot_ template file to locale/sample.pot
+3. Move the generated _sample.pot_ template file to IronPythonPackageLib/locale/sample.pot
 
-4. Copy it and save it to _locale/ja/LC_MESSAGES/sample.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode). Now you may open it and translate the strings: msgid is the original string, msgstr is the translation. Don't forget to set "Language: ja\n"
+4. Copy it and save it to _IronPythonPackageLib/locale/ja/LC_MESSAGES/sample.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode). Now you may open it and translate the strings: msgid is the original string, msgstr is the translation. Don't forget to set "Language: ja\n"
 
 	**Hint:** You may use the Tool [Poedit](https://poedit.net/) to translate your strings:
 	
@@ -292,7 +292,7 @@ Following steps have been taken in the example-project to achieve this translati
 		
 6. Repeat steps 3-5 for _package.pot_
 		
-7. Localizing packages (Domain per Package) - introduce the _()-function per package-namespace.	Add the following code in the __init__.py-file of the **sample**-packge:
+7. To localize per package (Domain per Package) we'll introduce the _()-function per package-namespace.	Add the following code in the __init__.py-file of the **sample**-packge:
 	
 		current_locale, encoding = locale.getdefaultlocale()
 		_ = gettext.translation('sample', 'locale', [current_locale], fallback = True).ugettext #unicode gettext
@@ -301,7 +301,7 @@ Following steps have been taken in the example-project to achieve this translati
 
 9. Python-part finished!
 
-**Hint:** If file contains UTF-8 characters, put this at top of file:
+**Hint:** For all files containing UTF-8 characters, put this at top of file:
 	
 	# -*- coding: utf-8 -*-
 
@@ -316,15 +316,15 @@ Following steps have been taken in the example-project to achieve this translati
 		langEn.install()
 	
 ##C#-part	
-The C#-part is not described in this tutorial, see the _IronPythonCsharp_-Project for how to call Python from C#.
+The C#-part is not described in this tutorial, see the _IronPythonCsharp_-Project for how to execute the IronPython-Assembly from C#.
 
 ##Python -> C#
 The _make_python_dll.bat_-Script in _IronPythonPackageLib/tool_ is used to perform the following tasks:
 
-	1. Package the standard python libraries to an assembly (stdipy.dll **and _stdipyencod.dll_**)
-	2. Package the custom python packages **sample** and **package** to _sample.dll_ and _package.dll_
-	3. Add custom resource informations to the dlls using ResHacker.exe
-	4. Copy all the assemblies and **the _locale_-folder** to _IronPythonCsharp/bin/Release_
+1. Package the standard python libraries to an assembly (stdipy.dll **and _stdipyencod.dll_**)
+2. Package the custom python packages **sample** and **package** to _sample.dll_ and _package.dll_
+3. Add custom resource informations to the dlls using ResHacker.exe
+4. Copy all the assemblies and **the _locale_-folder** to _IronPythonCsharp/bin/Release_
 	
 You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsharp.exe_
 
@@ -332,4 +332,4 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 
 * Why are not keys used in msgid? See [Combining keys and full text when working with gettext and .po files](http://stackoverflow.com/a/15758551/2003325)
 
-* What options do we have to get different translations per packge? See [How do I use multiple .mo files simultaneously for gettext translation?](http://stackoverflow.com/a/34768780/2003325)
+* What options do we have to get different translations per package? See [How do I use multiple .mo files simultaneously for gettext translation?](http://stackoverflow.com/a/34768780/2003325)
