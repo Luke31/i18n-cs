@@ -19,7 +19,7 @@ set STD_DIR=%PYTHON_DIR%Lib\
 set STD_ENCOD_DIR=%PYTHON_DIR%Lib\encodings\
 
 rem ====== stdipy に含めるモジュールを指定 ======
-set STD_MODULES=(locale codecs gettext os ntpath genericpath glob fnmatch shutil site types stat warnings linecache UserDict UserList UserString abc _abcoll ConfigParser traceback optparse types textwrap string xmlrpclib base64 struct random zipfile tempfile uuid pickle StringIO copy _weakrefset collections keyword heapq bisect __future__ hashlib weakref functools)
+set STD_MODULES=(locale codecs token tokenize gettext os ntpath genericpath glob fnmatch shutil site types stat warnings linecache UserDict UserList UserString abc _abcoll ConfigParser traceback optparse types textwrap string xmlrpclib base64 struct random zipfile tempfile uuid pickle StringIO copy _weakrefset collections keyword heapq bisect __future__ hashlib weakref functools)
 
 rem ======= 含める .py ファイル一覧を取得 ========
 setlocal enabledelayedexpansion
@@ -51,7 +51,7 @@ endlocal
 rem ========= アセンブリ情報をセットし直す =========
 cd %TEMP_DIR%
 for %%d in (Sample stdipy stdipyencod) do (
-  rem ========= .rc ファイルを .res ファイルに変換する =========
+  rem ========= change .rc file to .res =========
   %RC% %RESOURCE_DIR%%%d.rc
   rem ========= バージョン情報を削除した dll を作成する =========
   %RH% -delete %%d.dll, _%%d.dll, VersionInfo, 1, 0
@@ -59,5 +59,7 @@ for %%d in (Sample stdipy stdipyencod) do (
   rem ========= バージョン情報を削除した dll にアセンブリ情報を追加する =========
   %RH% -addoverwrite _%%d.dll, %BIN_DIR%%%d.dll, %RESOURCE_DIR%%%d.res,,,
 )
+
+rem ========= Copy translations =========
 
 cd %~dp0
