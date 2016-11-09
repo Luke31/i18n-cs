@@ -318,7 +318,7 @@ Following steps have been taken in the example-project to achieve this translati
 ##C#-part	
 The C#-part is not described in this tutorial, see the _IronPythonCsharp_-Project for how to execute the IronPython-Assembly from C#.
 
-##Python -> C#
+##Python to C-Sharp
 The _make_python_dll.bat_-Script in _IronPythonPackageLib/tool_ is used to perform the following tasks:
 
 1. Package the standard python libraries to an assembly (stdipy.dll **and _stdipyencod.dll_**)
