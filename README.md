@@ -244,16 +244,13 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 *Example project: IronPythonPackageLib and IronPythonCsharp*
 
 This tutorial is based on [IronPython Python 2.7 - Internationalizing your programs and modules](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#internationalizing-your-programs-and-modules)
-Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
+
+Tutorial for translation using Poedit (Warning Python 3!): [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
 [Unicode mess](http://www.wefearchange.org/2012/06/the-right-way-to-internationalize-your.html)
 
-[How to generate and use a .exe that uses other dlls with IronPython : pyc.py](https://thesesergio.wordpress.com/2013/09/11/how-to-generate-and-use-a-exe-that-uses-net-dlls-with-ironpython-pyc-py/)
-Better but old: [ironpycompiler 0.10.1](https://pypi.python.org/pypi/ironpycompiler/) - http://pythonhosted.org/ironpycompiler/html-en/index.html
+[A complete guide to i18n in Python](http://www.mattlayman.com/2015/i18n.html) with [Github example: handroll](https://github.com/handroll/handroll)
 
-[A complete guide to i18n in Python](http://www.mattlayman.com/2015/i18n.html)
-with Github project:
-[Github: handroll](https://github.com/handroll/handroll)
-
+##Python-part
 First we start with the Python-Part. In the example project _IronPythonPackageLib_ there are two packages for demonstration: **sample** and **package**.
 
 **Given state:** The _core_-module in the **sample**-package calls a function in the _side_-module of the **package**-package. All the strings are given in the source-code.
@@ -317,9 +314,11 @@ Following steps have been taken in the example-project to achieve this translati
 
 		# start by using language1
 		langEn.install()
-		
+	
+##C#-part	
 The C#-part is not described in this tutorial, see the _IronPythonCsharp_-Project for how to call Python from C#.
 
+##Python -> C#
 The _make_python_dll.bat_-Script in _IronPythonPackageLib/tool_ is used to perform the following tasks:
 
 	1. Package the standard python libraries to an assembly (stdipy.dll **and _stdipyencod.dll_**)
@@ -328,3 +327,9 @@ The _make_python_dll.bat_-Script in _IronPythonPackageLib/tool_ is used to perfo
 	4. Copy all the assemblies and **the _locale_-folder** to _IronPythonCsharp/bin/Release_
 	
 You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsharp.exe_
+
+##FAQ:
+
+* Why are not keys used in msgid? See [Combining keys and full text when working with gettext and .po files](http://stackoverflow.com/a/15758551/2003325)
+
+* What options do we have to get different translations per packge? See [How do I use multiple .mo files simultaneously for gettext translation?](http://stackoverflow.com/a/34768780/2003325)
