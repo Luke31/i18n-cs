@@ -241,7 +241,7 @@ Strings in your code should be in a _String Table resource_ and retrieved using 
 
 # Python (IronPython 2.7)
 
-*Example project: IronPythonModule and IronPythonApplication*
+*Example project: IronPythonPackageLib and IronPythonCsharp*
 
 This tutorial is based on [IronPython Python 2.7 - Internationalizing your programs and modules](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#internationalizing-your-programs-and-modules)
 Another Tutorial (Warning Python 3!) is [Translate Your Python 3 Program with the gettext Module](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/)
@@ -254,43 +254,61 @@ Better but old: [ironpycompiler 0.10.1](https://pypi.python.org/pypi/ironpycompi
 with Github project:
 [Github: handroll](https://github.com/handroll/handroll)
 
-1. Mark Strings with 
+First we start with the Python-Part. In the example project _IronPythonPackageLib_ there are two packages for demonstration: **sample** and **package**.
+
+**Given state:** The _core_-module in the **sample**-package calls a function in the _side_-module of the **package**-package. All the strings are given in the source-code.
+
+**Desired state:** Translations per package
+
+Following steps have been taken in the example-project to achieve this translation:
+
+1. Mark all strings which you'd like to translate with 
 
 		_('...Text...')
+		
+		TODO: FORMAT!
 	
-2. Run _pygettext.py_ (Similar to GNU xgettext) from _C:\Python27\Tools\i18n_ on your IronPython-file
+2. Run _pygettext.py_ (Similar to GNU xgettext) from _C:\Python27\Tools\i18n_ on your IronPython-packages containing your .py-files
 	
-	**Hint:** IronPython does not contain a Tools\i18n folder! Use a regular Python 2.7 instance instead!
+	**Hint:** IronPython does not contain a Tools\i18n folder! Use the one from a regular Python 2.7 instance instead (e.g. copied it to _IronPythonPackageLib_ for example)
 
-		pygettext.py sample/IronPython.py
+		pygettext.py -d sample sample/*.py
+		pygettext.py -d package package/*.py
+		
+	This will get you a _sample.pot_ and _package.pot_ template file containing all the marked strings per package.
 	
-3. Copy the generated _messages.pot_ template file and transate the strings to a new file called _messages.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode)
+3. Move the generated _sample.pot_ template file to locale/sample.pot
+
+4. Copy it and save it to _locale/ja/LC_MESSAGES/sample.po_ (Yes _.po_, not _.pot_ - make sure the file is saved in Unicode). Now you may open it and translate the strings: msgid is the original string, msgstr is the translation. Don't forget to set "Language: ja\n"
 
 	**Hint:** You may use the Tool [Poedit](https://poedit.net/) to translate your strings:
 	
 	![Open pot Template](tutorial_img/4_poedit_fromtemplate.png)
 	
-	![Edit text and save as messages.po](tutorial_img/4_poedit_text.png)
+	![Edit text and save as sample.po](tutorial_img/4_poedit_text.png)
 
-4. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
+5. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
 
 	**Hint:** If you've used Poedit, the tool has already done this for you :)
 
-		msgfmt.py messages
+		msgfmt.py sample
 		
-The next steps depend on whether you would like to localize your whole application or just a module
+6. Repeat steps 3-5 for _package.pot_
 		
-5. Localizing module (Example-Module named _sample_)
-
-		import gettext
-		t = gettext.translation('IronPython', '/usr/share/locale')
-		_ = t.ugettext
-
-5. Localizing application
-
+7. Localizing packages (Domain per Package) - introduce the _()-function per package-namespace.	Add the following code in the __init__.py-file of the **sample**-packge:
 	
+		current_locale, encoding = locale.getdefaultlocale()
+		_ = gettext.translation('sample', 'locale', [current_locale], fallback = True).ugettext #unicode gettext
 		
-* Change languages on the fly:
+8. Do the same for the __init__.py-file of the **package**-packge (Write package instead of sample)
+
+9. Python-part finished!
+
+**Hint:** If file contains UTF-8 characters, put this at top of file:
+	
+	# -*- coding: utf-8 -*-
+
+**Addition:** If you'd like to change languages on the fly use this snippet (Only as an info, not in example, see: [Changing languages on the fly](https://ironpython-test.readthedocs.io/en/latest/library/gettext.html#changing-languages-on-the-fly)):
 
 		import gettext
 
@@ -300,6 +318,13 @@ The next steps depend on whether you would like to localize your whole applicati
 		# start by using language1
 		langEn.install()
 		
-**Hint:** If file contains UTF-8 characters, put this at top of file:
+The C#-part is not described in this tutorial, see the _IronPythonCsharp_-Project for how to call Python from C#.
+
+The _make_python_dll.bat_-Script in _IronPythonPackageLib/tool_ is used to perform the following tasks:
+
+	1. Package the standard python libraries to an assembly (stdipy.dll **and _stdipyencod.dll_**)
+	2. Package the custom python packages **sample** and **package** to _sample.dll_ and _package.dll_
+	3. Add custom resource informations to the dlls using ResHacker.exe
+	4. Copy all the assemblies and **the _locale_-folder** to _IronPythonCsharp/bin/Release_
 	
-	# -*- coding: utf-8 -*-
+You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsharp.exe_
