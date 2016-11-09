@@ -10,12 +10,12 @@ BLOCK "StringFileInfo"
 	BLOCK "041104B0"
 	{
 		VALUE "CompanyName", "CO-CONV, Corp."
-		VALUE "FileDescription", "Localization Sample"
+		VALUE "FileDescription", "Localization Package Test"
 		VALUE "FileVersion", "0.9.0.0"
-		VALUE "InternalName", "sample.dll"
+		VALUE "InternalName", "package.dll"
 		VALUE "LegalCopyright", "Copyright (C) CO-CONV, Corp."
-		VALUE "OriginalFilename", "sample.dll"
-		VALUE "ProductName", "sample"
+		VALUE "OriginalFilename", "package.dll"
+		VALUE "ProductName", "package"
 		VALUE "ProductVersion", "0.9.0.0"
 	}
 }

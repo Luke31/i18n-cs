@@ -59,7 +59,8 @@ clr.AddReference('mscorlib')
 clr.AddReference('System.Core')
 clr.AddReferenceToFileAndPath('stdipy.dll')
 clr.AddReferenceToFileAndPath('stdipyencod.dll')
-clr.AddReferenceToFileAndPath('Sample.dll')
+clr.AddReferenceToFileAndPath('sample.dll')
+clr.AddReferenceToFileAndPath('package.dll')
 from sample import core", Program.AssemblyDir), SourceCodeKind.Statements);
             src.Execute(scope);
             

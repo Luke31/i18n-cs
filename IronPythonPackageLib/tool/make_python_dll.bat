@@ -15,6 +15,7 @@ mkdir %TEMP_DIR%
 
 rem ====== それぞれの dll に対応するフォルダを指定 ========
 set SAMPLE_DIR=..\sample\
+set PACKAGE_DIR=..\package\
 set STD_DIR=%PYTHON_DIR%Lib\
 set STD_ENCOD_DIR=%PYTHON_DIR%Lib\encodings\
 
@@ -26,6 +27,10 @@ setlocal enabledelayedexpansion
 set SAMPLE=
 for /f "usebackq tokens=*" %%i in (`dir "%SAMPLE_DIR%*.py" /B`) do (
   set SAMPLE=!SAMPLE! %%i
+)
+set PACKAGE=
+for /f "usebackq tokens=*" %%i in (`dir "%PACKAGE_DIR%*.py" /B`) do (
+  set PACKAGE=!PACKAGE! %%i
 )
 
 set STD=
@@ -40,7 +45,9 @@ for /f "usebackq tokens=*" %%i in (`dir "%STD_ENCOD_DIR%*.py" /B`) do (
 
 rem ======== dll 生成 =============
 cd /d %~dp0%SAMPLE_DIR%
-%PYC% /out:%TEMP_DIR%Sample %SAMPLE%
+%PYC% /out:%TEMP_DIR%sample %SAMPLE%
+cd /d %~dp0%PACKAGE_DIR%
+%PYC% /out:%TEMP_DIR%package %PACKAGE%
 cd %STD_DIR%
 %PYC% /out:%TEMP_DIR%stdipy %STD%
 cd %STD_ENCOD_DIR%
@@ -50,7 +57,7 @@ endlocal
 
 rem ========= アセンブリ情報をセットし直す =========
 cd %TEMP_DIR%
-for %%d in (Sample stdipy stdipyencod) do (
+for %%d in (sample package stdipy stdipyencod) do (
   rem ========= change .rc file to .res =========
   %RC% %RESOURCE_DIR%%%d.rc
   rem ========= バージョン情報を削除した dll を作成する =========
