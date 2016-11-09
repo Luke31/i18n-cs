@@ -79,10 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\IPythonApi.cs" />
-    <Compile Include="Api\PythonApi.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="Executors\Executor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
