@@ -382,9 +382,9 @@ For information about the use of different codepages per languaeg, see: [WiX - C
 	* Japanese (ja-jp) Language: 1041 Codepage: 932, 
 	* English United States (en-us) Language: 1033 Codepage: 0 (only ASCII)
 	
-	**Important:**Actually the Codepage of English United States is 1252, however to have a general Codepage for all systems, we select 0 which only allows ASCII-characters (128)
+	**Important:** Actually the Codepage of English United States is 1252, however to have a general Codepage for all systems, we select 0 which only allows ASCII-characters (128)
 
-* The msi-installer won't start on a Japanese system, what to do?
+* The msi-installer won't start on a Japanese system with the error "変換するときにエラーが発生しました。指定された変換のパスが有効であることを確認してください。", what to do?
 
 	Look here: [single msi-file seems to need 1033.mst transform file](http://windows-installer-xml-wix-toolset.687559.n2.nabble.com/single-msi-file-seems-to-need-1033-mst-transform-file-td3261535.html)
 
