@@ -4,7 +4,6 @@ from sample import _
 from package import side
 
 def runModule():
-	# Translators: This comment is visible to translators in the .po file
 	print(_('Hello world'))
 
 	numb1 = 1

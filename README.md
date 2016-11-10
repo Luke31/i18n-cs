@@ -362,7 +362,3 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 
 	The order of the inserted strings may change depending on language, See: ["You have a {color} {car}" and "Vous avez une {car} {color}"](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/#comment-205535)
 	How to use _%_ and _.format()_ See: [PyFormat](https://pyformat.info/)
-
-* How can we give the translators of the .po-file additional comments to the string to translate? 
-
-	See [Localization Comments](http://docs.readthedocs.io/en/latest/i18n.html#localization-comments)
