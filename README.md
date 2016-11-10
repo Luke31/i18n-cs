@@ -301,25 +301,18 @@ Following steps have been taken in the example-project to achieve this translati
 		
 6. Repeat steps 3-5 for _package.pot_
 		
-7. To localize per package (Domain per Package) we'll introduce the _()-function per package-namespace.	Add the following code in the \__init__.py-file of the **sample**-packge:
+7. To localize per package (Domain per Package) we'll introduce the _()-function per package-namespace.	Add the following code in the \_\_init\_\_.py-file of the **sample**-packge:
 	
 		current_locale, encoding = locale.getdefaultlocale()
 		_ = gettext.translation('sample', 'locale', [current_locale], fallback = True).ugettext #unicode gettext
 		
-8. Do the same for the \__init__.py-file of the **package**-packge (Write package instead of sample)
+8. Do the same for the \_\_init\_\_.py-file of the **package**-packge (Write package instead of sample)
 
 9. Python-part finished!
 
-10. **Addition maintenance:** If you're source file has changd and you need to add the new translations, just edit the .po and add the new strings OR use msgmerge (See: [Gettext : How to update po and pot files after the source is modified](http://stackoverflow.com/a/7497395/2003325)
-For msgmerge on windows see [GetText for Windows](http://gnuwin32.sourceforge.net/packages/gettext.htm)
+10. **Addition maintenance:** If you're source file has changd and you need to add the new translations, just edit the .po and add the new strings
 
-		echo '' > messages.po # xgettext needs that file, and we need it empty
-		find . -type f -iname "*.py" | xgettext -j -f -
-		msgmerge -N existing.po messages.po > new.po
-		mv new.po existing.po
-		rm messages.po
-	
-	**Hint:** Even easier is the process with Poedit: 
+	**OR:** Even easier is the process with Poedit: 
 	* Generate the new .pot file as usual
 	* Open your existing .po-translation with Poedit and select _Catalogue -> Update from POT-file_
 	* Select the new generated .pot file
@@ -358,14 +351,18 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 ##FAQ:
 
 * Why are not keys used in msgid? 
+
 	See [Combining keys and full text when working with gettext and .po files](http://stackoverflow.com/a/15758551/2003325)
 
 * What options do we have to get different translations per package? 
+
 	See [How do I use multiple .mo files simultaneously for gettext translation?](http://stackoverflow.com/a/34768780/2003325)
 
 * Why should we use keywords for formatting instead of % or {}? 
+
 	The order of the inserted strings may change depending on language, See: ["You have a {color} {car}" and "Vous avez une {car} {color}"](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/#comment-205535)
 	How to use _%_ and _.format()_ See: [PyFormat](https://pyformat.info/)
 
 * How can we give the translators of the .po-file additional comments to the string to translate? 
+
 	See [Localization Comments](http://docs.readthedocs.io/en/latest/i18n.html#localization-comments)
