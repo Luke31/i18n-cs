@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include $(sys.CURRENTDIR)\environment.wxi?>
+  <Product Id="*" Name="!(loc.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Company)" UpgradeCode="65c595ce-2b12-4cf7-bca0-272ea719f11f">
+    <!--Product: Language="1041" Codepage="932"-->
+      
+    <Package InstallerVersion="200" Compressed="yes" /><!--Prev:  InstallScope="perMachine"-->
+    <!--Package Languages="1041" SummaryCodepage="932" -->
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="COMPANY_DIR" Name="CO-CONV">
+          <Directory Id="PROGRAM_DIR" Name="CO-LocalizationSampleIronPython">
+            <Directory Id="CODE_DIR" Name="CodeSampleIronPython"/>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="CO-LocalizationSampleIronPython"/>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="CODE_DIR">
+      <Component Id="CO_LocalizationSampleIronPython" Guid="7D9F0B43-9B82-4f14-AD05-5281977C5EC9" DiskId="1">
+        <!-- exe ファイル -->
+        <File Id="CO_LocalizationSampleIronPython_Exe" Name="$(var.IronPythonCsharp.TargetFileName)" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\$(var.IronPythonCsharp.TargetFileName)"/>
+
+        <File Id="IronPython_Dll" Name="IronPython.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\IronPython.dll" />
+        <File Id="IronPython_Modules_Dll" Name="IronPython.Modules.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\IronPython.Modules.dll" />
+        <File Id="log4net_Dll" Name="log4net.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\log4net.dll" />
+        <File Id="Microsoft_Scripting_Dll" Name="Microsoft.Scripting.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\Microsoft.Scripting.dll" />
+        <File Id="Microsoft_Scripting_MetaData_Dll" Name="Microsoft.Scripting.MetaData.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\Microsoft.Scripting.MetaData.dll" />
+        <File Id="Microsoft_Dynamic_Dll" Name="Microsoft.Dynamic.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolder)\Microsoft.Dynamic.dll" />
+        
+        <File Id="Stdipy_Dll" Name="stdipy.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\stdipy.dll"/>
+        <File Id="StdipyencodDll" Name="stdipyencod.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\stdipyencod.dll"/>
+        
+        <File Id="Sample_Dll" Name="sample.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\sample.dll"/>
+        <File Id="Package_Dll" Name="package.dll" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\package.dll"/>
+      </Component>
+      <Component Id="CO_LocalizationSampleIronPythonLocale" Guid="13801553-0B0C-429D-A37F-6B4446BE4673" DiskId="1">
+        <File Id="sample_ja" Name="sample.mo" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\sample.mo"/>
+        <File Id="package_ja" Name="package.mo" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\package.mo"/>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="01093646-2E39-4DFD-93E1-3FD23F24019E">
+        <Shortcut Id="CO_LocalizationSampleIronPython_Shortcut"
+          Name="!(loc.ShortcutName)"
+          Description="!(loc.ShortcutDesc)"
+          Target="[#CO_LocalizationSampleIronPython_Exe]"
+          WorkingDirectory="CODE_DIR"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\CO-CONV\CO-LocalizationSampleIronPython"
+          Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <!--<UIRef Id="WixUI_ErrorProgressText" />-->
+
+    <!--<UI Id="MondoWithoutLicenseAgreement">
+      --><!-- ダイアログ内で利用するフォント Tahoma を指定すると、Windowsの標準UIフォントになる --><!--
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      --><!-- ダイアログの標準フォント --><!--
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="Mondo" />
+
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+      --><!-- インストール時　のエントリポイント --><!--
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Not Installed</Publish>
+
+      --><!-- 最終確認画面 --><!--
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">NOT Installed</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg">Installed</Publish>
+
+      --><!-- インストール後に [変更] ボタンを押したときのエントリポイント --><!--
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+      --><!-- 変更、修復、削除を選ぶ画面 -->
+      <!--
+      <Publish Dialog="MaintenanceTypeDlg" Control="ChangeButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+    </UI>
+    <UIRef Id="WixUI_Common" />-->
+
+    <Feature Id="ProductFeature" Title="CO_LocalizationSampleIronPython" Level="1">
+      <ComponentRef Id="CO_LocalizationSampleIronPython" />
+      <ComponentRef Id="CO_LocalizationSampleIronPythonLocale" />
+      <ComponentRef Id="ApplicationShortcut"/>
+    </Feature>
+
+    <!-- コマンドプロンプトを表示して ngen を実行する --><!--
+    <CustomAction Id="ShellNgen" FileKey="Ngen_Console_Bat" ExeCommand="" Return="asyncNoWait" Execute="deferred" Impersonate="no"/>
+    <InstallExecuteSequence>
+      <Custom Action="ShellNgen" Before="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>-->
+  </Product>
+</Wix>
+  

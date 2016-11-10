@@ -362,3 +362,12 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 
 	The order of the inserted strings may change depending on language, See: ["You have a {color} {car}" and "Vous avez une {car} {color}"](http://inventwithpython.com/blog/2014/12/20/translate-your-python-3-program-with-the-gettext-module/#comment-205535)
 	How to use _%_ and _.format()_ See: [PyFormat](https://pyformat.info/)
+	
+# WiX Toolset v3.10.3 (.msi installer)
+
+*Example project: CodeSample-Msi which installs the CodeDefaultEnglish project*
+
+The following official WIX Tutorial is used: [How To: Make your installer localizable](http://wixtoolset.org/documentation/manual/v3/howtos/ui_and_localization/make_installer_localizable.html)
+
+**Hint:** This Tutorial requires an already existing WiX-Installer (Windows Installer XML)-project in your solution
+
