@@ -5,7 +5,6 @@
     <!--Product-Codepage will be overriden by WixLocalization Codepage -->
       
     <Package InstallerVersion="200" Compressed="yes" Languages="!(loc.ProductPackageLanguage)" SummaryCodepage="!(loc.PackageSummaryCodepage)"/><!--Prev:  InstallScope="perMachine"-->
-    <!--Package Languages="1033,1041" SummaryCodepage="932" -->
     <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
     <Directory Id="TARGETDIR" Name="SourceDir">
@@ -29,7 +28,6 @@
 
     <DirectoryRef Id="CODE_DIR">
       <Component Id="CO_LocalizationSampleIronPython" Guid="7D9F0B43-9B82-4f14-AD05-5281977C5EC9" DiskId="1">
-        <!-- exe ファイル -->
         <File Id="CO_LocalizationSampleIronPython_Exe" Name="$(var.IronPythonCsharp.TargetFileName)" Vital="yes" KeyPath="no"
           Source="$(var.DotNetBinFolder)\$(var.IronPythonCsharp.TargetFileName)"/>
 
@@ -78,16 +76,12 @@
           Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\package.mo"/>
       </Component>
     </DirectoryRef>
-    <!--<UIRef Id="WixUI_ErrorProgressText" />-->
-
 
     <UI Id="MondoWithoutLicenseAgreement">
-      <!-- ダイアログ内で利用するフォント Tahoma を指定すると、Windowsの標準UIフォントになる -->
       <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
       <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
       <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
 
-      <!-- ダイアログの標準フォント -->
       <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
       <Property Id="WixUI_Mode" Value="Mondo" />
 
@@ -102,17 +96,13 @@
 
       <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
 
-      <!-- インストール時　のエントリポイント -->
       <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Not Installed</Publish>
 
-      <!-- 最終確認画面 -->
       <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">NOT Installed</Publish>
       <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg">Installed</Publish>
 
-      <!-- インストール後に [変更] ボタンを押したときのエントリポイント -->
       <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
 
-      <!-- 変更、修復、削除を選ぶ画面 -->
       <Publish Dialog="MaintenanceTypeDlg" Control="ChangeButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
       <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
       <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
@@ -120,57 +110,11 @@
     </UI>
     <UIRef Id="WixUI_Common" />
 
-    <!--<UI Id="MondoWithoutLicenseAgreement">
-      --><!-- ダイアログ内で利用するフォント Tahoma を指定すると、Windowsの標準UIフォントになる --><!--
-      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
-      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
-      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
-
-      --><!-- ダイアログの標準フォント --><!--
-      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
-      <Property Id="WixUI_Mode" Value="Mondo" />
-
-      <DialogRef Id="ErrorDlg" />
-      <DialogRef Id="FatalError" />
-      <DialogRef Id="FilesInUse" />
-      <DialogRef Id="MsiRMFilesInUse" />
-      <DialogRef Id="PrepareDlg" />
-      <DialogRef Id="ProgressDlg" />
-      <DialogRef Id="ResumeDlg" />
-      <DialogRef Id="UserExit" />
-
-      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
-
-      --><!-- インストール時　のエントリポイント --><!--
-      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Not Installed</Publish>
-
-      --><!-- 最終確認画面 --><!--
-      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">NOT Installed</Publish>
-      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg">Installed</Publish>
-
-      --><!-- インストール後に [変更] ボタンを押したときのエントリポイント --><!--
-      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
-
-      --><!-- 変更、修復、削除を選ぶ画面 -->
-      <!--
-      <Publish Dialog="MaintenanceTypeDlg" Control="ChangeButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
-      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
-      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
-      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
-    </UI>
-    <UIRef Id="WixUI_Common" />-->
-
     <Feature Id="ProductFeature" Title="CO_LocalizationSampleIronPython" Level="1">
       <ComponentRef Id="CO_LocalizationSampleIronPython" />
       <ComponentRef Id="CO_LocalizationSampleIronPythonLocale" />
       <ComponentRef Id="ApplicationShortcut"/>
     </Feature>
-
-    <!-- コマンドプロンプトを表示して ngen を実行する --><!--
-    <CustomAction Id="ShellNgen" FileKey="Ngen_Console_Bat" ExeCommand="" Return="asyncNoWait" Execute="deferred" Impersonate="no"/>
-    <InstallExecuteSequence>
-      <Custom Action="ShellNgen" Before="InstallFinalize">NOT Installed</Custom>
-    </InstallExecuteSequence>-->
   </Product>
 </Wix>
   
