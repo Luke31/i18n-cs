@@ -13,14 +13,14 @@ BEGIN
     BEGIN
         BLOCK "041104b0"
         BEGIN
-            VALUE "CompanyName", "CO-CONV, Corp."
-            VALUE "FileDescription", "CO-Store IronPython 共通ライブラリ"
-            VALUE "FileVersion", "3.0.1.0"
+            VALUE "CompanyName", "CO"
+            VALUE "FileDescription", "CO-IronPython IronPython 共通ライブラリ"
+            VALUE "FileVersion", "0.9.0.0"
             VALUE "InternalName", "stdipy.dll"
-            VALUE "LegalCopyright", "Copyright (C) CO-CONV, Corp."
+            VALUE "LegalCopyright", "Copyright (C) CO, Corp."
             VALUE "OriginalFilename", "stdipy.dll"
-            VALUE "ProductName", "CO-Store"
-            VALUE "ProductVersion", "3.0.1.0"
+            VALUE "ProductName", "CO-IronPython"
+            VALUE "ProductVersion", "0.9.0.0"
         END
     END
     BLOCK "VarFileInfo"

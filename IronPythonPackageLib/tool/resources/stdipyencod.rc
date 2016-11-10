@@ -9,13 +9,13 @@ BLOCK "StringFileInfo"
 {
 	BLOCK "041104b0"
 	{
-		VALUE "CompanyName", "CO-CONV, Corp."
-		VALUE "FileDescription", "CO-Store IronPython 共通ライブラリ"
+		VALUE "CompanyName", "CO, Corp."
+		VALUE "FileDescription", "CO-IronPython 共通ライブラリ"
 		VALUE "FileVersion", "0.9.0.0"
 		VALUE "InternalName", "stdipyencod.dll"
-		VALUE "LegalCopyright", "Copyright (C) CO-CONV, Corp."
+		VALUE "LegalCopyright", "Copyright (C) CO, Corp."
 		VALUE "OriginalFilename", "stdipyencod.dll"
-		VALUE "ProductName", "CO-Store"
+		VALUE "ProductName", "CO-IronPython"
 		VALUE "ProductVersion", "0.9.0.0"
 	}
 }
