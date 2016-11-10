@@ -371,4 +371,27 @@ The following official and very good WIX Tutorial is used: [How To: Make your in
 
 **Hint:** This Tutorial requires an already existing WiX-Installer (Windows Installer XML)-project in your solution
 
-For information about to use different codepages per languaeg, see: [WiX - Code Pages](http://wixtoolset.org/documentation/manual/v3/overview/codepage.html)
+For information about the use of different codepages per languaeg, see: [WiX - Code Pages](http://wixtoolset.org/documentation/manual/v3/overview/codepage.html)
+
+**Important:** For English you must use _WixLocalization Culture="en-us"_ and not "en"! Else, all WixUI-element translations must be provided by yourself.
+
+##FAQ
+
+* What are the Codepages and Languages?
+
+	* Japanese (ja-jp) Language: 1041 Codepage: 932, 
+	* English United States (en-us) Language: 1033 Codepage: 0 (only ASCII)
+	
+	**\***Actually the Codepage of English United States is 1252, however to have a general Codepage for all systems, we select 0 which only allows ASCII-characters (128)
+
+* The msi-installer won't start on a Japanese system, what to do?
+
+	Look here: [single msi-file seems to need 1033.mst transform file](http://windows-installer-xml-wix-toolset.687559.n2.nabble.com/single-msi-file-seems-to-need-1033-mst-transform-file-td3261535.html)
+
+	Important is, that the Package-Languages attribute, must only contain the desired language and must be overriden b the WixLocalization-element:
+	
+		<Package Languages="!(loc.ProductPackageLanguage)" .../>
+		
+	and in e.g. japanese.wxl:
+	
+		<String Id="ProductPackageLanguage" Localizable="no">1041</String>

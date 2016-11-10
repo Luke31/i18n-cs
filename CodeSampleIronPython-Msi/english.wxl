@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WixLocalization Culture="en" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+<WixLocalization Culture="en-us" Codepage="0" 
+                 xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="ProductPackageLanguage" Localizable="no">1033</String>
+  <String Id="PackageSummaryCodepage" Localizable="no">0</String>
   <String Id="ProductName">CO-Localization Sample IronPython</String>
 	<String Id="ShortcutName">CO-Localization Sample IronPython</String>
   <String Id="ShortcutDesc">CO-Localization Sample IronPython Desc</String>

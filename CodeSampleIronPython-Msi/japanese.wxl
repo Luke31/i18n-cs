@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WixLocalization Culture="ja-jp" xmlns="http://schemas.microsoft.com/wix/2006/localization">
-  <String Id="ProductName">CO-Localization Sample IronPython</String>
-  <String Id="ShortcutName">CO-Localization Sample IronPython</String>
-  <String Id="ShortcutDesc">CO-Localization Sample IronPython Desc</String>
+<WixLocalization Culture="ja-jp" Codepage="932" 
+                 xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <!--Language="1041" -->
+  <String Id="ProductPackageLanguage" Localizable="no">1041</String>
+  <String Id="PackageSummaryCodepage" Localizable="no">932</String>
+  <String Id="ProductName">日本語　CO-Localization Sample IronPython</String>
+  <String Id="ShortcutName">日本語　CO-Localization Sample IronPython</String>
+  <String Id="ShortcutDesc">日本語　CO-Localization Sample IronPython Desc</String>
 </WixLocalization>
