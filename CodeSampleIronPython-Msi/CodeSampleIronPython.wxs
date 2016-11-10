@@ -12,7 +12,13 @@
       <Directory Id="$(var.PlatformProgramFilesFolder)">
         <Directory Id="COMPANY_DIR" Name="CO-CONV">
           <Directory Id="PROGRAM_DIR" Name="CO-LocalizationSampleIronPython">
-            <Directory Id="CODE_DIR" Name="CodeSampleIronPython"/>
+            <Directory Id="CODE_DIR" Name="CodeSampleIronPython">
+              <Directory Id="LOCALE_DIR" Name="locale">
+                <Directory Id="JA_DIR" Name="ja">
+                  <Directory Id="LC_MESSAGES" Name="LC_MESSAGES"/>
+                </Directory>
+              </Directory>
+            </Directory>
           </Directory>
         </Directory>
       </Directory>
@@ -50,14 +56,7 @@
         <File Id="Package_Dll" Name="package.dll" Vital="yes" KeyPath="no"
           Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\package.dll"/>
       </Component>
-      <Component Id="CO_LocalizationSampleIronPythonLocale" Guid="13801553-0B0C-429D-A37F-6B4446BE4673" DiskId="1">
-        <File Id="sample_ja" Name="sample.mo" Vital="yes" KeyPath="no"
-          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\sample.mo"/>
-        <File Id="package_ja" Name="package.mo" Vital="yes" KeyPath="no"
-          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\package.mo"/>
-      </Component>
     </DirectoryRef>
-
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut" Guid="01093646-2E39-4DFD-93E1-3FD23F24019E">
         <Shortcut Id="CO_LocalizationSampleIronPython_Shortcut"
@@ -71,6 +70,14 @@
       </Component>
     </DirectoryRef>
 
+    <DirectoryRef Id="LC_MESSAGES">
+      <Component Id="CO_LocalizationSampleIronPythonLocale" Guid="13801553-0B0C-429D-A37F-6B4446BE4673" DiskId="1">
+        <File Id="sample_ja" Name="sample.mo" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\sample.mo"/>
+        <File Id="package_ja" Name="package.mo" Vital="yes" KeyPath="no"
+          Source="$(var.DotNetBinFolderIronPythonCsharp)\Release\locale\ja\LC_MESSAGES\package.mo"/>
+      </Component>
+    </DirectoryRef>
     <!--<UIRef Id="WixUI_ErrorProgressText" />-->
 
     <!--<UI Id="MondoWithoutLicenseAgreement">

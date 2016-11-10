@@ -367,7 +367,8 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 
 *Example project: CodeSample-Msi which installs the CodeDefaultEnglish project*
 
-The following official WIX Tutorial is used: [How To: Make your installer localizable](http://wixtoolset.org/documentation/manual/v3/howtos/ui_and_localization/make_installer_localizable.html)
+The following official and very good WIX Tutorial is used: [How To: Make your installer localizable](http://wixtoolset.org/documentation/manual/v3/howtos/ui_and_localization/make_installer_localizable.html)
 
 **Hint:** This Tutorial requires an already existing WiX-Installer (Windows Installer XML)-project in your solution
 
+For information about to use different codepages per languaeg, see: [WiX - Code Pages](http://wixtoolset.org/documentation/manual/v3/overview/codepage.html)
