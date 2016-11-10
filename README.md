@@ -365,7 +365,7 @@ You may start the application using _IronPythonCsharp/bin/Release/IronPythonCsha
 	
 # WiX Toolset v3.10.3 (.msi installer)
 
-*Example project: CodeSample-Msi which installs the CodeDefaultEnglish project*
+*Example project: CodeSample-Msi which installs the IronPythonCsharp project*
 
 The following official and very good WIX Tutorial is used: [How To: Make your installer localizable](http://wixtoolset.org/documentation/manual/v3/howtos/ui_and_localization/make_installer_localizable.html)
 
@@ -382,16 +382,24 @@ For information about the use of different codepages per languaeg, see: [WiX - C
 	* Japanese (ja-jp) Language: 1041 Codepage: 932, 
 	* English United States (en-us) Language: 1033 Codepage: 0 (only ASCII)
 	
-	**\***Actually the Codepage of English United States is 1252, however to have a general Codepage for all systems, we select 0 which only allows ASCII-characters (128)
+	*****Actually the Codepage of English United States is 1252, however to have a general Codepage for all systems, we select 0 which only allows ASCII-characters (128)
 
 * The msi-installer won't start on a Japanese system, what to do?
 
 	Look here: [single msi-file seems to need 1033.mst transform file](http://windows-installer-xml-wix-toolset.687559.n2.nabble.com/single-msi-file-seems-to-need-1033-mst-transform-file-td3261535.html)
 
-	Important is, that the Package-Languages attribute, must only contain the desired language and must be overriden b the WixLocalization-element:
+	Important is, that the Package-Languages attribute must only contain the desired language and must be overriden by the WixLocalization-element:
 	
 		<Package Languages="!(loc.ProductPackageLanguage)" .../>
 		
-	and in e.g. japanese.wxl:
+	and in english.wxl:
+	
+		<String Id="ProductPackageLanguage" Localizable="no">1033</String>
+		
+	and in japanese.wxl:
 	
 		<String Id="ProductPackageLanguage" Localizable="no">1041</String>
+		
+* I've used the English installer, but the application is in Japanese, why?
+
+	In this case, you are running a Japanese system. The application uses your UILanguage and not the Installer-Language
