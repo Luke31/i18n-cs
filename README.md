@@ -301,7 +301,7 @@ Following steps have been taken in the example-project to achieve this translati
 		
 6. Repeat steps 3-5 for _package.pot_
 		
-7. To localize per package (Domain per Package) we'll introduce the _()-function per package-namespace.	Add the following code in the \__init__.py-file of the **sample**-packge:
+7. To localize per package (Domain per Package) we'll introduce the _()-function per package-namespace.	Add the following code in the \_\_init\_\_.py-file of the **sample**-packge:
 	
 		current_locale, encoding = locale.getdefaultlocale()
 		_ = gettext.translation('sample', 'locale', [current_locale], fallback = True).ugettext #unicode gettext
