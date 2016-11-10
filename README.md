@@ -291,7 +291,7 @@ Following steps have been taken in the example-project to achieve this translati
 	
 	![Open pot Template](tutorial_img/4_poedit_fromtemplate.png)
 	
-	![Edit text and save as sample.po](tutorial_img/4_poedit_text.png)
+	![Edit text and save as sample.po](tutorial_img/4_poedit_text2.png)
 
 5. Convert the .po-file to a .mo-binary-file using _msgfmt.py_ in _C:\Python27\Tools\i18n_
 
