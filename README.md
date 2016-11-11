@@ -102,11 +102,35 @@ There are various combinations of default language and satellite languages (The 
 
 ## C# WPF
 
-*Example Project: WPF*
-
 This Tutorial is NOT based on Microsofts MSDN Tutorial [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718(v=vs.110).aspx)
 
+Why not use the Microsoft way with LocBaml?
+
+* The localization process is not integrated into the standard Visual Studio build mechanism (as it is for Windows Forms applications).
+* There is no way to view or edit the localized XAML within the Visual Studio designer.
+* Locbaml uses CSV files and has issues when the translated text includes commas. The use of CSV files forces translators to work with two separate mechanisms since they still have to work with standard .NET RESX files for programmatically translated strings.
+* The Locbaml approach results in the complete binary XAML for the window being replicated in the satellite assemblies for each localized language. This results in much larger footprint for localized applications compared to the Windows Forms approach where only those resources that differ from the invariant culture are compiled into the satellite assemblies.
+* There is no way to dynamically change the language of the application at runtime without closing and recreating windows.
+
+Sources for reasons: [WPF Localization Using RESX Files](http://www.codeproject.com/Articles/35159/WPF-Localization-Using-RESX-Files)
+ and [Globalizing and Localizing a WPF application](http://blogs.u2u.be/diederik/post/2010/04/29/Globalizing-and-Localizating-a-WPF-application.aspx)
+
+Comparison of  WPF Localization with Advantages and Disadvantages: [WPF LOCALIZATION](https://sachabarbs.wordpress.com/2008/06/11/wpf-localization/)
+
+### WPF with WPFLocalizationExtension
+
+*Example Project: WPFLocalizationExtension*
+
 Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
+
+Advantages: (Source: [Globalizing and Localizing a WPF application](http://blogs.u2u.be/diederik/post/2010/04/29/Globalizing-and-Localizating-a-WPF-application.aspx))
+
+* Design time support (See result without running)
+* Change language at runtime
+
+Disadvantages:
+
+* Large library
 
 Follow the very simple Tutorial [WPF: Localization using Resources and Localization Extension](http://www.broculos.net/2014/04/wpf-localization-using-resources-and.html#.WBlSQvqLSUk) and mind the hints below:
 
@@ -137,6 +161,17 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 * If you would like to access Resources from different Assemblies in the XAML, look here: [Usage - Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
 	
 * Look at the [WPFLocalizationExtension Wiki](https://wpflocalizeextension.codeplex.com/documentation) for further questions
+
+### WPF with only resources
+
+*Example Project: WPFSimpleResources*
+
+If the WPFLocalizationExtension library is too large and not all features are needed, one may use the simpler resources-only approach, as described in this tutorial: [WPF - Localization Resources](https://www.tutorialspoint.com/wpf/wpf_localization.htm)
+
+**Hint:** In this part, we don't use the Properties Resources as described in the tutorial. Instead we use custom resources which has the benefit of splitting the translation-strings in various resources.
+
+
+
 
 ### Additional helpful features
 
