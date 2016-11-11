@@ -2,9 +2,9 @@
 This is a collection of Visual Studio 2015 Applications to demonstrate internationalization in C# Code, WinForms, WPF and WIX installers.
 The default language is English and translations to Japanese are added. This approach is recommended so systems other than Japanese or English will see an English interface.
 
-For the specific documentation see the [Github Wiki of this project](https://github.com/Luke31/i18n-cs/wiki)
+**For the specific documentation see the [Github Wiki of this project](https://github.com/Luke31/i18n-cs/wiki)**
 
-General tips and how to ditch the most common pitfalls of globalization and localization:
+##General tips and how to ditch the most common pitfalls of globalization and localization:
 
 * Be aware how your application will react, if a system with an unsupported locale will run your application. Best practice to have a **fallback to the default language**.
 
@@ -16,11 +16,11 @@ General tips and how to ditch the most common pitfalls of globalization and loca
 
 * Dates, times and currencies: Display them according either to the users-locale or in a fixed format. Currencies may be round differently depending on the type of currency or locale.
 
-* Daylight-saving time (summer/winter time): Some countries change their time-zone in spring and autumn from usually 2am <-> 3am. Be aware of this especially for e.g. crone-jobs and backup-tasks.
+* Daylight-saving time (summer/winter time): Some countries change their time-zone in spring and autumn between usually 2am and 3am. Be aware of this especially for e.g. crone-jobs and backup-tasks.
 
 * If you have formatted strings with inserted values, do not rely on the sequence of the values. The sequence may change depending on the language, for example:
 
-	English: "You have a {color} {car}" and
+	English: "You have a {color} {car}"
 	
 	French: "Vous avez une {car} {color}"
 	
