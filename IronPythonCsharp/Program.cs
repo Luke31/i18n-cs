@@ -24,15 +24,8 @@ namespace IronPythonCsharp
         {
             InitializeEngine();
             
-            try
-            {
-                runModule();
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                return 1;
-            }
+            runModule();
+            return 0;
         }
 
         private void InitializeEngine()

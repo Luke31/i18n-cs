@@ -21,6 +21,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "CodeSampleIronPython-Msi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFLocalizationExtension", "WPFLocalizationExtension\WPFLocalizationExtension.csproj", "{71A98E83-3AD9-4D59-9498-26A45036F620}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSimpleResources", "WPFSimpleResources\WPFSimpleResources.csproj", "{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,18 @@ Global
 		{71A98E83-3AD9-4D59-9498-26A45036F620}.Release|x64.Build.0 = Release|Any CPU
 		{71A98E83-3AD9-4D59-9498-26A45036F620}.Release|x86.ActiveCfg = Release|Any CPU
 		{71A98E83-3AD9-4D59-9498-26A45036F620}.Release|x86.Build.0 = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|x64.Build.0 = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Debug|x86.Build.0 = Debug|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|x64.ActiveCfg = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|x64.Build.0 = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{C18172BD-88DD-4B04-8D2B-D1E27BEA77EC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
