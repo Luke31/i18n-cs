@@ -121,7 +121,7 @@ Comparison of  WPF Localization with Advantages and Disadvantages: [WPF LOCALIZA
 
 *Example Project: WPFLocalizationExtension*
 
-Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combinatino with Resources .resx files.
+Instead we will use the free WPFLocalizationExtension (https://github.com/SeriousM/WPFLocalizationExtension) under the [Ms-PL license](https://tldrlegal.com/license/microsoft-public-license-(ms-pl)) in combination with Resources .resx files.
 
 Advantages: (Source: [Globalizing and Localizing a WPF application](http://blogs.u2u.be/diederik/post/2010/04/29/Globalizing-and-Localizating-a-WPF-application.aspx))
 
@@ -156,9 +156,9 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 			<!-- Some controls -->
 		</Window>
 		
-* How to access the resoruces in the XAML you may find here: [Usage - Keys](https://wpflocalizeextension.codeplex.com/wikipage?title=Keys&referringTitle=Documentation)
+* How to access the resources in the XAML you may find here: [Usage - Keys](https://wpflocalizeextension.codeplex.com/wikipage?title=Keys&referringTitle=Documentation)
 
-* If you would like to access Resources from different Assemblies in the XAML, look here: [Usage - Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
+* If you would like to access Resources from different assemblies in the XAML, look here: [Usage - Multiple assemblies and dictionaries](https://wpflocalizeextension.codeplex.com/wikipage?title=Multiple%20assemblies%20and%20dictionaries)
 	
 * Look at the [WPFLocalizationExtension Wiki](https://wpflocalizeextension.codeplex.com/documentation) for further questions
 
@@ -168,16 +168,14 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 
 If the WPFLocalizationExtension library is too large and not all features are needed, one may use the simpler resources-only approach, as described in this tutorial: [WPF - Localization Resources](https://www.tutorialspoint.com/wpf/wpf_localization.htm)
  or [Tutorial – Binding to Resources.resx for strings in a WPF Application: A technique to prepare for localization](https://www.rhyous.com/2010/10/20/using-resources-resx-for-strings-in-a-wpf-application-a-technique-to-prepare-for-localization/)
+
 **Hint:** In this part, we don't use the Properties Resources as described in the tutorial. Instead we use custom resources which has the benefit of splitting the translation-strings in various resources.
 
 ### WPF with custom MarkupExtension
 
 *No Example Project*
 
-If you'd like to have runtime translations, but WPFLocalizationExtensionLibrary is too heavy, you may write your own MarkupExtension:
-
-[WPF Localization at runtime with ResX files. Part II.](http://apaers.com/2015/03/wpf-localization-at-runtime-using-resx-files/)
-
+If you'd like to have runtime translations, but WPFLocalizationExtensionLibrary is too heavy, you may write your own MarkupExtension: [WPF Localization at runtime with ResX files. Part II.](http://apaers.com/2015/03/wpf-localization-at-runtime-using-resx-files/)
 
 ### Additional helpful features
 
