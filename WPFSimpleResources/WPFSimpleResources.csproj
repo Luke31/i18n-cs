@@ -71,11 +71,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Loc\LocResources.ja.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocResources.ja.resx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -97,14 +92,10 @@
     </Compile>
     <EmbeddedResource Include="Loc\LocResources.ja.resx">
       <SubType>Designer</SubType>
-      <CustomToolNamespace>WPFSimpleResources.Loc</CustomToolNamespace>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>LocResources.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Loc\LocResources.resx">
       <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <CustomToolNamespace>WPFSimpleResources.Loc</CustomToolNamespace>
       <LastGenOutput>LocResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

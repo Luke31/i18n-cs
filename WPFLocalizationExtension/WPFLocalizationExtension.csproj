@@ -88,15 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Extensions\BitmapExtension.cs" />
-    <Compile Include="LocResources.Designer.cs">
+    <Compile Include="Loc\LocResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="LocResources.ja.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocResources.ja.resx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -117,14 +112,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="LocResources.ja.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>LocResources.ja.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LocResources.resx">
+    <EmbeddedResource Include="Loc\LocResources.ja.resx" />
+    <EmbeddedResource Include="Loc\LocResources.resx">
+      <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LocResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -156,10 +148,10 @@
     <Resource Include="Images\en.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\en.png" />
+    <None Include="Loc\Resources\en.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\jp.png" />
+    <None Include="Loc\Resources\jp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

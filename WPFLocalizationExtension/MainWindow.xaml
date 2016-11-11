@@ -7,9 +7,8 @@
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
         lex:LocalizeDictionary.DesignCulture="en"
         lex:ResxLocalizationProvider.DefaultAssembly="WPFLocalizationExtension"
-        lex:ResxLocalizationProvider.DefaultDictionary="LocResources"
+        lex:ResxLocalizationProvider.DefaultDictionary="Loc.LocResources"
         
-        xmlns:local="clr-namespace:WPFLocalizationExtension"
         mc:Ignorable="d"
         xml:lang="en"
         FontFamily="Time New Roman" 

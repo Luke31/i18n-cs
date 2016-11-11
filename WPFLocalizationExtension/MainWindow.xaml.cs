@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFLocalizationExtension.Extensions;
+using WPFLocalizationExtension.Loc;
 using WPFLocalizeExtension.Engine;
 
 namespace WPFLocalizationExtension

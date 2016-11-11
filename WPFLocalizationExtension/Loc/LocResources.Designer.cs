@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFLocalizationExtension {
+namespace WPFLocalizationExtension.Loc {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WPFLocalizationExtension {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPFLocalizationExtension.LocResources", typeof(LocResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WPFLocalizationExtension.Loc.LocResources", typeof(LocResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
