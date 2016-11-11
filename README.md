@@ -170,7 +170,13 @@ If the WPFLocalizationExtension library is too large and not all features are ne
 
 **Hint:** In this part, we don't use the Properties Resources as described in the tutorial. Instead we use custom resources which has the benefit of splitting the translation-strings in various resources.
 
+### WPF with custom MarkupExtension
 
+*No Example Project*
+
+If you'd like to have runtime translations, but WPFLocalizationExtensionLibrary is too heavy, you may write your own MarkupExtension:
+
+[WPF Localization at runtime with ResX files. Part II.](http://apaers.com/2015/03/wpf-localization-at-runtime-using-resx-files/)
 
 
 ### Additional helpful features
