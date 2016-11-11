@@ -13,10 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF.Extensions;
+using WPFLocalizationExtension.Extensions;
 using WPFLocalizeExtension.Engine;
 
-namespace WPF
+namespace WPFLocalizationExtension
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
