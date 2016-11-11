@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFSimpleResources.Extensions;
+using WPFSimpleResources.Loc;
 
 namespace WPFSimpleResources
 {
@@ -32,14 +34,14 @@ namespace WPFSimpleResources
 
             var txtblk = new TextBlock()
             {
-                Text = null, //LocResources.helloWorld,
+                Text = LocResources.helloWorld,
                 VerticalAlignment = VerticalAlignment.Bottom,
                 HorizontalAlignment = HorizontalAlignment.Left
             };
 
             var image = new Image
             {
-                Source = null, //LocResources.img.ConvertToBitmapImage(), //Call to custom extension Method to convert Bitmap to BitmapImage
+                Source = LocResources.img.ConvertToBitmapImage(), //Call to custom extension Method to convert Bitmap to BitmapImage
                 //Source = new BitmapImage(new Uri("Images/en.png", UriKind.RelativeOrAbsolute)), //Previous
                 VerticalAlignment = VerticalAlignment.Bottom,
                 HorizontalAlignment = HorizontalAlignment.Right,

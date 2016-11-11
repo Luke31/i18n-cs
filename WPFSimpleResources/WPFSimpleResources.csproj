@@ -64,8 +64,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\BitmapImageConverter.cs" />
     <Compile Include="Extensions\BitMapExtension.cs" />
-    <Compile Include="LocResources.ja.Designer.cs">
+    <Compile Include="Loc\LocResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Loc\LocResources.ja.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocResources.ja.resx</DependentUpon>
@@ -89,14 +95,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="LocResources.ja.resx">
+    <EmbeddedResource Include="Loc\LocResources.ja.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>WPFSimpleResources.Loc</CustomToolNamespace>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LocResources.ja.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="LocResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+    <EmbeddedResource Include="Loc\LocResources.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>WPFSimpleResources.Loc</CustomToolNamespace>
+      <LastGenOutput>LocResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,9 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\en.png" />
-    <Resource Include="Resources\jp.png" />
+    <Resource Include="Loc\Resources\en.png" />
+    <Resource Include="Loc\Resources\jp.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

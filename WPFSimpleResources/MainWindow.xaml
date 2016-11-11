@@ -4,6 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
+        xmlns:loc="clr-namespace:WPFSimpleResources.Loc"
+        xmlns:converters="clr-namespace:WPFSimpleResources.Converters"
+
         mc:Ignorable="d"
         xml:lang="en"
         FontFamily="Time New Roman" 
@@ -12,13 +15,16 @@
         FontStyle="Italic"
         Background="Beige"
         Title="MainWindow" Height="300" Width="600">
+    <Window.Resources>
+        <converters:BitmapImageConverter x:Key="ImageConverter" />
+    </Window.Resources>
     <Grid x:Uid="contentGrid" Name="contentGrid" Margin="10,10,10,10">
 
         <!--Key explicitly defined for finding translation:-->
         <TextBlock x:Uid="TextBlock_1" 
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
-                   Text="asdf" 
+                   Text="{x:Static loc:LocResources.helloWorld}" 
                    />
 
         <!--Name is used as key for finding translation in Resources-file:-->
@@ -26,12 +32,14 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    Name="helloWorld" 
-                    Text="asdf" 
+                    Text="{x:Static loc:LocResources.helloWorld}" 
                    />
 
-        <!--<Image x:Uid="Image_1" Source="asdf" 
-               VerticalAlignment="Top" 
-               HorizontalAlignment="Right" 
-               Stretch="None"></Image>-->
+        <Image x:Uid="Image_1" Source="{Binding Source={x:Static loc:LocResources.img}, 
+            Converter={StaticResource ImageConverter}}" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Right" 
+                   Stretch="None"></Image>
     </Grid>
+    
 </Window>
