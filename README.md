@@ -151,8 +151,8 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 
 		<Window xmlns:lex="http://wpflocalizeextension.codeplex.com"
 			lex:LocalizeDictionary.DesignCulture="en"
-			lex:ResxLocalizationProvider.DefaultAssembly="WPF"
-			lex:ResxLocalizationProvider.DefaultDictionary="LocResources">
+			lex:ResxLocalizationProvider.DefaultAssembly="WPFLocalizationExtension"
+			lex:ResxLocalizationProvider.DefaultDictionary="Loc.LocResources">
 			<!-- Some controls -->
 		</Window>
 		
