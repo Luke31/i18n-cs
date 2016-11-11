@@ -6,11 +6,11 @@ The default language is English and translations to Japanese are added. This app
 
 ### General tips and how to ditch the most common pitfalls of globalization and localization:
 
-* Be aware how your application will react, if a system with an unsupported locale will run your application. Best practice to have a **fallback to the default language**.
+* Be aware how your application will react, if a system with an unsupported locale will run your application. Best practice is to have a **fallback to the default language**.
 
 * Be aware which default language you set. Best practice is to use **English**.
 
-* Write your source code including comments and messages in English where possible. If the English skills of your developers are insufficient, allow comments in their local language (Japanese). Default language for the messages should be English however.
+* Write your source code including comments and messages in English where possible. If the English skills of your developers are insufficient, allow comments in their local language (e.g. Japanese). Good and exact Japanese is better than bad English for commenting functionality. Default language for the messages should be English however.
 
 * Dates and time: Be aware how you calculate date-and time differences in your code.
 
