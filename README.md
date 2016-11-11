@@ -4,7 +4,7 @@ The default language is English and translations to Japanese are added. This app
 
 **For the specific documentation see the [Github Wiki of this project](https://github.com/Luke31/i18n-cs/wiki)**
 
-##General tips and how to ditch the most common pitfalls of globalization and localization:
+### General tips and how to ditch the most common pitfalls of globalization and localization:
 
 * Be aware how your application will react, if a system with an unsupported locale will run your application. Best practice to have a **fallback to the default language**.
 
