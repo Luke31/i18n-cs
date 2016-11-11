@@ -167,7 +167,7 @@ Follow the very simple Tutorial [WPF: Localization using Resources and Localizat
 *Example Project: WPFSimpleResources*
 
 If the WPFLocalizationExtension library is too large and not all features are needed, one may use the simpler resources-only approach, as described in this tutorial: [WPF - Localization Resources](https://www.tutorialspoint.com/wpf/wpf_localization.htm)
-
+ or [Tutorial – Binding to Resources.resx for strings in a WPF Application: A technique to prepare for localization](https://www.rhyous.com/2010/10/20/using-resources-resx-for-strings-in-a-wpf-application-a-technique-to-prepare-for-localization/)
 **Hint:** In this part, we don't use the Properties Resources as described in the tutorial. Instead we use custom resources which has the benefit of splitting the translation-strings in various resources.
 
 ### WPF with custom MarkupExtension

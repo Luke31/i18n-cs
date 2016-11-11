@@ -9,7 +9,7 @@
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="$(var.PlatformProgramFilesFolder)">
-        <Directory Id="COMPANY_DIR" Name="CO-CONV">
+        <Directory Id="COMPANY_DIR" Name="CO">
           <Directory Id="PROGRAM_DIR" Name="CO-LocalizationSampleIronPython">
             <Directory Id="CODE_DIR" Name="CodeSampleIronPython">
               <Directory Id="LOCALE_DIR" Name="locale">
@@ -63,7 +63,7 @@
           Target="[#CO_LocalizationSampleIronPython_Exe]"
           WorkingDirectory="CODE_DIR"/>
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        <RegistryValue Root="HKCU" Key="Software\CO-CONV\CO-LocalizationSampleIronPython"
+        <RegistryValue Root="HKCU" Key="Software\CO\CO-LocalizationSampleIronPython"
           Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
