@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,7 +37,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="lib\intl.dll" />
     <None Include="External\intl.dll" />
     <None Include="External\locale\ja\LC_MESSAGES\cppgettext.mo" />
     <None Include="External\locale\ja\LC_MESSAGES\cppgettext.po" />
