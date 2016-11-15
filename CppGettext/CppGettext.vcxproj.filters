@@ -41,5 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\intl.dll" />
+    <None Include="External\intl.dll" />
+    <None Include="External\locale\ja\LC_MESSAGES\cppgettext.mo" />
+    <None Include="External\locale\ja\LC_MESSAGES\cppgettext.po" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\intl.lib" />
   </ItemGroup>
 </Project>

@@ -180,9 +180,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="External\intl.dll" />
+    <None Include="External\locale\ja\LC_MESSAGES\cppgettext.mo" />
+    <None Include="External\locale\ja\LC_MESSAGES\cppgettext.po" />
     <None Include="lib\intl.dll">
       <DeploymentContent>false</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\intl.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
