@@ -20,12 +20,21 @@
 std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 
 
-std::wstring convertToUnicode(std::string narrow_utf8_source_string) {
-	//std::string narrow = converter.to_bytes(wide_utf16_source_string);
-	std::wcout << L"Start converting..." << std::endl;
-	std::wstring wide = converter.from_bytes(narrow_utf8_source_string);
-	std::wcout << L"End converting..." << std::endl;
-	return wide;
+//std::wstring convertToUnicode(std::string narrow_utf8_source_string) {
+//	//std::string narrow = converter.to_bytes(wide_utf16_source_string);
+//	std::wcout << L"Start converting..." << std::endl;
+//	std::wstring wide = converter.from_bytes(narrow_utf8_source_string);
+//	std::wcout << L"End converting..." << std::endl;
+//	return wide;
+//}
+
+const std::wstring stow(const std::string& str)
+{
+	if (str.empty()) return L"";
+	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+	std::wstring wstrTo(size_needed, 0);
+	MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+	return wstrTo;
 }
 
 int PrintUserLocale() {
@@ -53,33 +62,27 @@ int wmain(int argc, wchar_t* argv[])
 	//If not set, any output to wcout with wide-characters will break the output
 	//_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
 										   //stdout may now be written to file (First character must be ASCII if output is written to file)
-	std::wcout << L"Enabling Unicode support" << std::endl;
+	//std::wcout << L"Enabling Unicode support" << std::endl;
 	//END File-Unicode-Support
 
 	setlocale(LC_ALL, ""); //Set locale to environment
+	std::wcout << setlocale(LC_ALL, NULL) << std::endl; //Read locale from setlocale
 	PrintUserLocale();
-
-	//Output using wprintf
-	//wprintf(str.c_str());
-	//std::wcout << std::endl;
-
-	////Output using wcout
-	//std::wcout << str << std::endl;
 
 	textdomain("cppgettext");
 	bindtextdomain("cppgettext", "locale");
-	//bind_textdomain_codeset("default", "UTF-8");
-		
-	std::wcout << _("Hello world") << std::endl;
+
 	std::wcout << _("Hello world2") << std::endl;
 
-	//std::wstring test = convertToUnicode(_("Hello world"));
-
-	//std::wcout << convertToUnicode(_("Hello world")) << std::endl;
+	std::wstring ws = stow(_("Hello world"));
+		
+	std::wcout << ws << std::endl;
 	
-	std::wcout << "s" << std::endl;
 
-	//Output fixed japanese string in code
+	//std::wstring test = convertToUnicode(_("Hello world"));
+	//std::wcout << convertToUnicode(_("Hello world")) << std::endl;
+
+	//Output fixed japanese string in code (only possible if _O_U16TEXT is set)
 	std::wstring wstr = L"こんにちは from Source Code - Console output only visible on Japanese systems, file output any system";
 	std::wcout << wstr << std::endl;
 

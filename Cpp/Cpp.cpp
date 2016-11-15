@@ -42,6 +42,7 @@ int wmain(int argc, wchar_t* argv[])
 {
 	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
 	setlocale(LC_ALL, ""); //Set locale to environment
+	std::wcout << setlocale(LC_ALL, NULL) << std::endl; //Read locale from setlocale
 
 	//stdout may now be written to file (First character must be ASCII if output is written to file)
 	std::wcout << L"Enabling Unicode support" << std::endl;
