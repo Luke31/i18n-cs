@@ -24,6 +24,12 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\autosprintf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\libintl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -32,5 +38,8 @@
     <ClCompile Include="CppGettext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\intl.dll" />
   </ItemGroup>
 </Project>

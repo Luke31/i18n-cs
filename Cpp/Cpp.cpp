@@ -41,9 +41,12 @@ std::wstring LoadStringW(unsigned int id)
 int wmain(int argc, wchar_t* argv[])
 {
 	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
+	setlocale(LC_ALL, ""); //Set locale to environment
+
 	//stdout may now be written to file (First character must be ASCII if output is written to file)
 	std::wcout << L"Enabling Unicode support" << std::endl;
 
+	setlocale(LC_ALL, "");
 	PrintUserLocale();
 
 	//Load multi-lang resource
@@ -55,6 +58,10 @@ int wmain(int argc, wchar_t* argv[])
 
 	//Output using wcout
 	std::wcout << str << std::endl;
+
+	//Output fixed japanese string in code
+	std::wstring wstr = L"こんにちは from Source Code - Console output only visible on Japanese systems, file output any system";
+	std::wcout << wstr << std::endl;
 
 	return 0;
 }
