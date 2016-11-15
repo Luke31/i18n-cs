@@ -11,29 +11,18 @@
 #include "libintl.h"
 // Define shortcut for gettext().
 #define _(string) gettext (string)
-//#define _(char *) gettext
 
 #include <locale>
 #include <codecvt>
 #include <string>
 
-std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
-
-//std::wstring convertToUnicode(std::string narrow_utf8_source_string) {
-//	//std::string narrow = converter.to_bytes(wide_utf16_source_string);
-//	std::wcout << L"Start converting..." << std::endl;
-//	std::wstring wide = converter.from_bytes(narrow_utf8_source_string);
-//	std::wcout << L"End converting..." << std::endl;
-//	return wide;
-//}
-
+//Convert string in current system MultiByte code-page to widechar
 const std::wstring stow(const std::string& str)
 {
 	if (str.empty()) return L"";
-	int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
+	int size_needed = MultiByteToWideChar(CP_ACP, 0, &str[0], (int)str.size(), NULL, 0); //CP_UTF8
 	std::wstring wstrTo(size_needed, 0);
-	MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed);
+	MultiByteToWideChar(CP_ACP, 0, &str[0], (int)str.size(), &wstrTo[0], size_needed); //CP_UTF8, CP_ACP
 	return wstrTo;
 }
 
@@ -50,6 +39,7 @@ int PrintUserLocale() {
 	else
 	{
 		wprintf(L"Locale: %s\n", strNameBuffer);
+		std::wcout << setlocale(LC_ALL, NULL) << std::endl << std::endl; //Read locale from setlocale
 		return 0;
 	}
 }
@@ -57,36 +47,33 @@ int PrintUserLocale() {
 //wmain: http://stackoverflow.com/a/3299860/2003325
 int wmain(int argc, wchar_t* argv[])
 {
-	//START File-Unicode-Support
-	//Set output mode, if set wide strings in file e.g. L"あう" work. However gettext doesn't work in _O_U16TEXT
-	//If not set, any output to wcout with wide-characters will break the output
-	//_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
-										   //stdout may now be written to file (First character must be ASCII if output is written to file)
-	//std::wcout << L"Enabling Unicode support" << std::endl;
-	//END File-Unicode-Support
+	//Set output Unicode without BOM
+	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
+	//stdout may now be written to file (First character must be ASCII if output is written to file)
+	std::wcout << L"Enabling Unicode support" << std::endl;
 
+	//Set locale
 	setlocale(LC_ALL, ""); //Set locale to environment
-	std::wcout << setlocale(LC_ALL, NULL) << std::endl; //Read locale from setlocale
 	PrintUserLocale();
 
+	//Gettext
 	textdomain("cppgettext");
 	bindtextdomain("cppgettext", "locale");
 
-	std::wcout << _("Hello world2") << std::endl;
-
-	std::wstring ws = stow(_("Hello world"));
-		
-	std::wcout << ws << std::endl;
+	//Hello world
+	std::wcout << "--Hello World in local language:--" << std::endl;
+	std::string s = _("Hello world");
+	std::wstring ws = stow(s);
+	std::wcout << ws << std::endl << std::endl;
 	
+	//Short hello world with ASCII Debug prefix
+	std::wcout << "--Hello World in local language with ASCII Debug prefix:--" << std::endl;
+	std::wcout << stow(_("Debug Hello world")) << std::endl << std::endl;
 
-	//std::wstring test = convertToUnicode(_("Hello world"));
-	//std::wcout << convertToUnicode(_("Hello world")) << std::endl;
-
-	//Output fixed japanese string in code (only possible if _O_U16TEXT is set)
-	std::wstring wstr = L"こんにちは from Source Code - Console output only visible on Japanese systems, file output any system";
+	//Output fixed japanese string from source code (only possible if _O_U16TEXT is set)
+	std::wcout << "--Hello in Japanese from source code (Console output only visible on Japanese systems, file output any system):--" << std::endl;
+	std::wstring wstr = L"こんにちは from Source Code";
 	std::wcout << wstr << std::endl;
-
-	std::wcout << "End" << std::endl;
 
 	return 0;
 }

@@ -21,6 +21,7 @@ int PrintUserLocale() {
 	else
 	{
 		wprintf(L"Locale: %s\n", strNameBuffer);
+		std::wcout << setlocale(LC_ALL, NULL) << std::endl << std::endl; //Read locale from setlocale
 		return 0;
 	}
 }
@@ -40,28 +41,31 @@ std::wstring LoadStringW(unsigned int id)
 //wmain: http://stackoverflow.com/a/3299860/2003325
 int wmain(int argc, wchar_t* argv[])
 {
+	//Set output Unicode without BOM
 	_setmode(_fileno(stdout), _O_U16TEXT); //_O_WTEXT (with BOM)
-	setlocale(LC_ALL, ""); //Set locale to environment
-	std::wcout << setlocale(LC_ALL, NULL) << std::endl; //Read locale from setlocale
-
 	//stdout may now be written to file (First character must be ASCII if output is written to file)
 	std::wcout << L"Enabling Unicode support" << std::endl;
 
-	setlocale(LC_ALL, "");
+	//Set locale
+	setlocale(LC_ALL, ""); //Set locale to environment
 	PrintUserLocale();
 
 	//Load multi-lang resource
 	std::wstring str = LoadStringW(IDS_HW);
 
+	//Hello world
 	//Output using wprintf
+	std::wcout << "--Hello World in local language 1 (wprintf):--" << std::endl;
 	wprintf(str.c_str());
-	std::wcout << std::endl;
+	std::wcout << std::endl << std::endl;
 
 	//Output using wcout
-	std::wcout << str << std::endl;
+	std::wcout << "--Hello World in local language 2 (wcout):--" << std::endl;
+	std::wcout << str << std::endl << std::endl;
 
-	//Output fixed japanese string in code
-	std::wstring wstr = L"こんにちは from Source Code - Console output only visible on Japanese systems, file output any system";
+	//Output fixed japanese string from source code (only possible if _O_U16TEXT is set)
+	std::wcout << "--Hello in Japanese from source code (Console output only visible on Japanese systems, file output any system):--" << std::endl;
+	std::wstring wstr = L"こんにちは from Source Code";
 	std::wcout << wstr << std::endl;
 
 	return 0;
