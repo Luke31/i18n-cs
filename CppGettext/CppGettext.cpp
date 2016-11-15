@@ -11,7 +11,6 @@
 #include "libintl.h"
 // Define shortcut for gettext().
 #define _(string) gettext (string)
-
 #include <locale>
 #include <codecvt>
 #include <string>
